@@ -1,0 +1,98 @@
+body{
+    background-color: #BCE1DF;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #041a2c;
+}
+.header{
+    display: flex;
+    margin-top: -95vh;
+    width: 90vw;
+    position: fixed;
+}
+.menu1{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+    margin-left:10vw ;
+}
+.menu2{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+    margin-left: 17.5vw;
+}
+.menu3{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+    margin-left: 17.5vw;
+}
+.main{
+    width:90vw ;
+    height: 95vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 5vw;
+    margin-top: 2.5vh;
+    text-align: center;
+}
+.border{
+    border:dashed 3px #d6a684 ;
+    width: 89.5vw;
+    margin-left: 5vw;
+    margin-top: -85vh;
+}
+.main-title1{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    color: #333d85;
+    margin-top: 5vh;
+    margin-left: 7vw;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 18vw;
+}
+.grade{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+select{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 10vw;
+    height: 7vh;
+    text-align: center;
+    margin-top: 4vh;
+    margin-left: -3vw;
+}
+.box{
+    display: flex;
+}
+.competiton{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    width: 10vw;
+}

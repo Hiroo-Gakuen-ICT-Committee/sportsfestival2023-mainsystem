@@ -13,4 +13,8 @@ app.get("/",(req,res) => {
    res.render("index.ejs");
 }
 );
+app.get("/manage",(req,res) =>{
+  res.render("manage.ejs");
+}
+);
 app.listen(3000);

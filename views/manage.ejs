@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023スポーツフェスティバル</title>
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'ajd4mui',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
+    <link rel="stylesheet" href="/css/manage.css">
+</head>
+<body>
+    <div class="main"></div>
+        <ul class="header">
+        <li class="menu1"><a href="based">>_基本得点入力</a></li>
+        <li class="menu2">>_得点修正・減点</li>
+        <li class="menu3">>_現在結果閲覧</li>
+    </ul>
+    <div class="border"></div>
+    <div id="based"></div>
+    <div class="main-title1">>_基本得点入力</div>
+    <form action="/based" method="post">
+        <div class="box">
+        <div class="grade">>学年</div>
+        <select name="grade">
+            <option value="M1/H1">M1/H1</option>
+            <option value="M2/H2">M2/H2</option>
+            <option value="M3/H3">M3/H3</option>
+            <option value="colors">色別</option>
+        </select>
+        <div class="competiton">>競技名</div>
+        <select name="competition">
+            <option value="Male-sweadish">男子スウェーデンリレー</option>
+            <option value="Female-sweadish">女子スウェーデンリレー</option>
+            <option value="Male-classes">男子クラスリレー</option>
+            <option value="Female-classes">女子クラスリレー</option>
+        </select>
+    </div>
+            </form>
+</body>
+</html>
