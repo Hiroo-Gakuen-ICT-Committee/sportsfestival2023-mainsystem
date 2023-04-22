@@ -20,30 +20,734 @@
 <body>
     <div class="main"></div>
         <ul class="header">
-        <li class="menu1"><a href="based">>_基本得点入力</a></li>
-        <li class="menu2">>_得点修正・減点</li>
-        <li class="menu3">>_現在結果閲覧</li>
+        <li class="menu1"><a href="#based">>_基本得点入力</a></li>
+        <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
+        <li class="menu3"><a href="#control">>_得点修正・減点</a></li>
+        <li class="menu4">>_現在結果閲覧</li>
     </ul>
     <div class="border"></div>
-    <div id="based"></div>
+        <div id="based"></div>
     <div class="main-title1">>_基本得点入力</div>
-    <form action="/based" method="post">
+    <form action="/classscore" method="post">
         <div class="box">
         <div class="grade">>学年</div>
         <select name="grade">
             <option value="M1/H1">M1/H1</option>
             <option value="M2/H2">M2/H2</option>
             <option value="M3/H3">M3/H3</option>
-            <option value="colors">色別</option>
         </select>
         <div class="competiton">>競技名</div>
-        <select name="competition">
+        <select name="competition" class="comp-list">
             <option value="Male-sweadish">男子スウェーデンリレー</option>
             <option value="Female-sweadish">女子スウェーデンリレー</option>
             <option value="Male-classes">男子クラスリレー</option>
             <option value="Female-classes">女子クラスリレー</option>
         </select>
-    </div>
-            </form>
-</body>
+          </div>
+          <div class="point">>各クラス結果</div>
+          <div class="box">
+          <div class="classes">1組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+                </div>
+        <div class="box">
+          <div class="classes">2組</div>
+            <input type="text" name="time" placeholder="タイム">
+            <select name="ranking" class="ranking">
+              <option value="first">1位</option>
+              <option value="second">2位</option>
+              <option value="third">3位</option>
+              <option value="fourth">4位</option>
+              <option value="fifth">5位</option>
+              <option value="sixth">6位</option>
+              <option value="seventh">7位</option>
+            </select>
+            </div><div class="box">
+          <div class="classes">3組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+        </div><div class="box">
+          <div class="classes">4組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+        </div><div class="box">
+          <div class="classes">5組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+        </div><div class="box">
+          <div class="classes">6組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+        </div>
+        <div class="box">
+          <div class="classes">7組</div>
+          <input type="text" name="time" placeholder="タイム">
+          <select name="ranking" class="ranking">
+            <option value="first">1位</option>
+            <option value="second">2位</option>
+            <option value="third">3位</option>
+            <option value="fourth">4位</option>
+            <option value="fifth">5位</option>
+            <option value="sixth">6位</option>
+            <option value="seventh">7位</option>
+          </select>
+          <input type="submit" value="更新" class="submits">
+                </div>
+      </form>
+      <div class="main2"></div>
+      <div id="colors"></div>
+        <ul class="header">
+        <li class="menu1"><a href="#based">>_基本得点入力</a></li>
+        <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
+        <li class="menu3"><a href="#control">>_得点修正・減点</li>
+          <li class="menu4">>_現在結果閲覧</li>
+    </ul>
+    <div class="border"></div>
+            <div class="colors-title">>色別競技結果</div>
+            <div class="box">
+              <div class="competiton2">>競技名</div>
+              <select name="competition" class="comp-list">
+                  <option value="Male-sweadish">色別対抗リレー</option>
+                  <option value="Female-sweadish">女子スウェーデンリレー</option>
+                  <option value="Male-classes">男子クラスリレー</option>
+                  <option value="Female-classes">女子クラスリレー</option>
+              </select>
+                            </div>
+                    <div class="point">>各色結果</div>
+                    <div class="box">
+                  <div class="classes">赤色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                        </div>
+                <div class="box">
+                  <div class="classes">橙色</div>
+                    <input type="text" name="time" placeholder="タイム">
+                    <select name="ranking" class="ranking">
+                      <option value="first">1位</option>
+                      <option value="second">2位</option>
+                      <option value="third">3位</option>
+                      <option value="fourth">4位</option>
+                      <option value="fifth">5位</option>
+                      <option value="sixth">6位</option>
+                      <option value="seventh">7位</option>
+                    </select>
+                    </div><div class="box">
+                  <div class="classes">黄色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                </div><div class="box">
+                  <div class="classes">緑色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                </div><div class="box">
+                  <div class="classes">青色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                </div><div class="box">
+                  <div class="classes">紫色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                </div>
+                <div class="box">
+                  <div class="classes">黒色</div>
+                  <input type="text" name="time" placeholder="タイム">
+                  <select name="ranking" class="ranking">
+                    <option value="first">1位</option>
+                    <option value="second">2位</option>
+                    <option value="third">3位</option>
+                    <option value="fourth">4位</option>
+                    <option value="fifth">5位</option>
+                    <option value="sixth">6位</option>
+                    <option value="seventh">7位</option>
+                  </select>
+                  <input type="submit" value="更新" class="submits">
+                        </div>
+                <div class="main3"></div>
+                <div id="control"></div>
+                <ul class="header2">
+                <div class="box">
+                <li class="menu1"><a href="#based">>_基本得点入力</a></li>
+                <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
+                <li class="menu3"><a href="#control">>_得点修正・減点</li>
+                <li class="menu4">>_現在結果閲覧</li>
+              </div>
+                              </ul>
+                <div class="border"></div>
+                <div class="control-title">>_クラス結果修正</div>
+                <div class="box">
+                      <div class="grade">>学年</div>
+                <select name="grade" class="grade-list">
+                  <option value="M1/H1">M1/H1</option>
+                  <option value="M2/H2">M2/H2</option>
+                  <option value="M3/H3">M3/H3</option>
+              </select>
+              <div class="competiton">>競技名</div>
+              <select name="competition" class="comp-list">
+                <option value="Male-sweadish">男子スウェーデンリレー</option>
+                <option value="Female-sweadish">女子スウェーデンリレー</option>
+                <option value="Male-classes">男子クラスリレー</option>
+                <option value="Female-classes">女子クラスリレー</option>
+            </select>   
+            <div class="class-title">>クラス</div>
+            <select name="class" class="class-list">
+              <option value="one">1組</option>
+              <option value="two">2組</option>
+              <option value="three">3組</option>
+            </select>
+          </div>
+            <div class="box">
+            <div class="time-title">>新規タイム</div>
+            <input type="text" name="time" class="time-list">
+            <div class="rank-title">>新規順位</div>
+            <select name="ranking" class="ranking2">
+              <option value="first">1位</option>
+              <option value="second">2位</option>
+              <option value="third">3位</option>
+              <option value="fourth">4位</option>
+              <option value="fifth">5位</option>
+              <option value="sixth">6位</option>
+              <option value="seventh">7位</option>
+            </select>
+            <input type="submit" class="submit3">
+                </div>
+                <div class="control-title">>_色別結果修正</div>
+                <div class="box">
+                <div class="grade">>競技名</div>
+                <select name="competition" class="comp-list">
+                  <option value="Male-sweadish">男子スウェーデンリレー</option>
+                  <option value="Female-sweadish">女子スウェーデンリレー</option>
+                  <option value="Male-classes">男子クラスリレー</option>
+                  <option value="Female-classes">女子クラスリレー</option>
+              </select>
+              <div class="time-title">>新規タイム</div>
+              <input type="text" name="time" class="time-list">
+            </div>
+            <div class="box">
+              <div class="rank-title2">>新規順位</div>
+              <select name="ranking" class="ranking2">
+                <option value="first">1位</option>
+                <option value="second">2位</option>
+                <option value="third">3位</option>
+                <option value="fourth">4位</option>
+                <option value="fifth">5位</option>
+                <option value="sixth">6位</option>
+                <option value="seventh">7位</option>
+              </select>
+              <input type="submit" class="submit3">
+            </div>
+            <div class="control-title">>_各競技減点</div>
+            <div class="box">
+            <div class="grade2">>学年</div>
+            <select name="grade" class="grade-list2">
+              <option value="M1/H1">M1/H1</option>
+              <option value="M2/H2">M2/H2</option>
+              <option value="M3/H3">M3/H3</option>
+          </select>
+          <div class="grade2">>競技名</div>
+          <select name="competition" class="comp-list">
+            <option value="Male-sweadish">男子スウェーデンリレー</option>
+            <option value="Female-sweadish">女子スウェーデンリレー</option>
+            <option value="Male-classes">男子クラスリレー</option>
+            <option value="Female-classes">女子クラスリレー</option>
+        </select>
+        </div>
+        <div class="box">
+          <div class="class-title2">>クラス</div>
+          <select name="class" class="class-list2">
+            <option value="one">1組</option>
+            <option value="two">2組</option>
+            <option value="three">3組</option>
+          </select>
+          <div class="subtract">>減点</div>
+          <input type="text" name="subtract" class="time-list2">
+          <input type="submit" class="submit4">
+        </div>
+        <div class="leader-title1">>M1/H1</div>
+        <div class="leaderboard1">
+            <table class="table1">
+                <tr>
+                    <th class="classname">クラス</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">1-1</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">1-2</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">1-3</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">1-4</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">1-5</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">1-6</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">1-7</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">1-8</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+            </table>
+        </div>
+        <div class="leader-title2">>M2/H2</div>
+        <div class="leaderboard2">
+            <table class="table2">
+                <tr>
+                    <th class="classname">クラス</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">2-1</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">2-2</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">2-3</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">2-4</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">2-5</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">2-6</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">2-7</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">2-8</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+            </table>
+        </div>
+        <div class="leader-title3">>M3/H3</div>
+        <div class="leaderboard3">
+            <table class="table3">
+                <tr>
+                    <th class="classname">クラス</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">3-1</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">3-2</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">3-3</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">3-4</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">2-5</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">3-6</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr><tr>
+                    <th class="classname">3-7</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">3-8</th>
+                    <td>競技1</td>
+                    <td>競技2</td>
+                    <td>競技3</td>
+                    <td>競技4</td>
+                    <td>競技5</td>
+                    <td>競技6</td>
+                    <td>競技7</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+            </table>
+        </div>
+        <div class="leader-title4">色別</div>
+        <div class="leaderboard4">
+            <table class="table4">
+                <tr>
+                    <th class="classname">カラー</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                    </tr>
+                <tr>
+                    <th class="classname">赤</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">オレンジ</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">黄</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">緑</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">青</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">紫</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">黒</th>
+                    <td>M1/H1</td>
+                    <td>M2/H2</td>
+                    <td>M3/H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+                <tr>
+                    <th class="classname">ピンク</th>
+                    <td>H1</td>
+                    <td>H2</td>
+                    <td>H3</td>
+                    <td>合計</td>
+                    <td>順位</td>
+                </tr>
+            </table>
+        </div>
+                        </body>
 </html>

@@ -12,25 +12,30 @@ a{
     display: flex;
     margin-top: -95vh;
     width: 90vw;
-    position: fixed;
 }
 .menu1{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
     margin-top: 4vh;
-    margin-left:10vw ;
+    margin-left:7vw ;
 }
 .menu2{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
     margin-top: 4vh;
-    margin-left: 17.5vw;
+    margin-left: 9.5vw;
 }
 .menu3{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
     margin-top: 4vh;
-    margin-left: 17.5vw;
+    margin-left: 9.5vw;
+}
+.menu4{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+    margin-left: 9.5vw;
 }
 .main{
     width:90vw ;
@@ -41,12 +46,13 @@ a{
     margin-left: 5vw;
     margin-top: 2.5vh;
     text-align: center;
+    overflow: scroll;
 }
 .border{
     border:dashed 3px #d6a684 ;
     width: 89.5vw;
     margin-left: 5vw;
-    margin-top: -85vh;
+    margin-top:2vh;
 }
 .main-title1{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
@@ -92,7 +98,338 @@ select{
     font-style: normal;
     font-size: 3.7vh;
     color: #041a2c;
-    margin-left: 5vw;
+    margin-left: 3vw;
     margin-top: 5vh;
     width: 10vw;
+}
+.comp-list{
+    width: 25vw;
+    margin-left: 1vw;
+}
+.point{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 20vw;
+}
+.classes{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 2.5vh;
+    width: 20vw;
+}
+input{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 15vw;
+    height: 6vh;
+    text-align: center;
+    margin-left: -15vw;
+    margin-top: 1vh;
+}
+.ranking{
+    margin-top: 1vh;
+    margin-left: 5vw;
+    height: 6vh;
+    width: 15vw;
+}
+.submits{
+    margin-left: 5vw;
+    width: 10vw;
+}
+.main2{
+    width:90vw ;
+    height: 95vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 5vw;
+    margin-top: 10vh;
+    text-align: center;
+    overflow: scroll;
+}
+.colors-title{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    color: #333d85;
+    margin-top: 5vh;
+    margin-left: 7vw;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 18vw;
+}
+.competiton2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.control-title{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    color: #333d85;
+    margin-top: 5vh;
+    margin-left: 7vw;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 22vw;
+}
+.change-title{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 22vw;
+}
+.class-title{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 15vw;
+}
+.class-list{
+    margin-left: -5vw;
+}
+.time-title{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 15vw;
+}
+.time-list{
+    margin-left: -1vw;
+    margin-top: 4vh;
+}
+.rank-title{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    width: 15vw;
+}
+.submit3{
+    margin-left: 5vw;
+    width: 10vw;
+    margin-top: 4.5vh;
+}
+.rank-title2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 15vw;
+}
+.grade2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.grade-list2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: -1vw;
+    width: 15vw;
+    margin-top: 4vh;
+}
+.main3{
+    width:90vw ;
+    height: 105vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 5vw;
+    margin-top: 10vh;
+    text-align: center;
+    overflow: scroll;
+}
+.header2{
+    margin-top: -105vh;
+}
+.class-title2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 3vh;
+    width: 15vw;
+}
+.class-list2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: -1vw;
+    width: 10vw;
+    margin-top: 1.5vh;
+}
+.subtract{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 3vh;
+    width: 15vw;
+}
+.time-list2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: -4vw;
+    width: 15vw;
+    margin-top: 2vh;
+}
+.submit4{
+    margin-left: 5vw;
+    width: 10vw;
+    margin-top: 2vh;
+}
+.leader-title1{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+
+.leaderboard1{
+    width:70vw ;
+    height: 62vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 15vw;
+    margin-top: 2vh;
+}
+table{
+    border-collapse:separate;
+    border-spacing: 1vw;
+    width: 70vw;
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    }
+
+table th,table td{
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+table th{
+    background-color: #d6a684;
+    color: white;
+}
+
+table td{
+    background-color: #e4d4bc;
+}
+.leader-title2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leader-title3{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leader-title4{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leaderboard2{
+    width:70vw ;
+    height: 62vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 15vw;
+    margin-top: 2vh;
+}
+.leaderboard3{
+    width:70vw ;
+    height: 62vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 15vw;
+    margin-top: 2vh;
+}
+.leaderboard4{
+    width:70vw ;
+    height: 62vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 15vw;
+    margin-top: 2vh;
 }
