@@ -23,7 +23,7 @@
         <li class="menu1"><a href="#based">>_基本得点入力</a></li>
         <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
         <li class="menu3"><a href="#control">>_得点修正・減点</a></li>
-        <li class="menu4">>_現在結果閲覧</li>
+        <li class="menu4"><a href="#check">>_現在結果閲覧</a></li>
     </ul>
     <div class="border"></div>
         <div id="based"></div>
@@ -140,14 +140,15 @@
         <li class="menu1"><a href="#based">>_基本得点入力</a></li>
         <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
         <li class="menu3"><a href="#control">>_得点修正・減点</li>
-          <li class="menu4">>_現在結果閲覧</li>
-    </ul>
+          <li class="menu4"><a href="#check">>_現在結果閲覧</a></li>
+            </ul>
     <div class="border"></div>
             <div class="colors-title">>色別競技結果</div>
-            <div class="box">
-              <form action="/colorscore">
+            
+            <form action="/colorscore">
+              <div class="box">
               <div class="competiton2">>競技名</div>
-              <select name="competition" class="comp-list">
+              <select name="competition" class="comp-list1">
                   <option value="Male-sweadish">色別対抗リレー</option>
                   <option value="Female-sweadish">女子スウェーデンリレー</option>
                   <option value="Male-classes">男子クラスリレー</option>
@@ -251,7 +252,7 @@
                 <li class="menu1"><a href="#based">>_基本得点入力</a></li>
                 <li class="menu2"><a href="#colors">>_色別得点入力</a></li>
                 <li class="menu3"><a href="#control">>_得点修正・減点</li>
-                <li class="menu4">>_現在結果閲覧</li>
+                <li class="menu4"><a href="#check">>_現在結果閲覧</a></li>
               </div>
                               </ul>
                 <div class="border"></div>
@@ -351,6 +352,7 @@
           <input type="submit" class="submit4">
         </div>
       </form>
+      <div id="check"></div>
                 <div class="leader-title1">>M1/H1</div>
         <div class="leaderboard1">
             <table class="table1">
