@@ -145,6 +145,7 @@
     <div class="border"></div>
             <div class="colors-title">>色別競技結果</div>
             <div class="box">
+              <form action="/colorscore">
               <div class="competiton2">>競技名</div>
               <select name="competition" class="comp-list">
                   <option value="Male-sweadish">色別対抗リレー</option>
@@ -242,7 +243,8 @@
                   </select>
                   <input type="submit" value="更新" class="submits">
                         </div>
-                <div class="main3"></div>
+                      </form>
+                                        <div class="main3"></div>
                 <div id="control"></div>
                 <ul class="header2">
                 <div class="box">
@@ -254,6 +256,7 @@
                               </ul>
                 <div class="border"></div>
                 <div class="control-title">>_クラス結果修正</div>
+                <form action="/classrenew">
                 <div class="box">
                       <div class="grade">>学年</div>
                 <select name="grade" class="grade-list">
@@ -289,7 +292,9 @@
               <option value="seventh">7位</option>
             </select>
             <input type="submit" class="submit3">
+          </form>
                 </div>
+                <form action="colorrenew">
                 <div class="control-title">>_色別結果修正</div>
                 <div class="box">
                 <div class="grade">>競技名</div>
@@ -315,7 +320,10 @@
               </select>
               <input type="submit" class="submit3">
             </div>
+          </form>
+          
             <div class="control-title">>_各競技減点</div>
+            <form action="subtract">
             <div class="box">
             <div class="grade2">>学年</div>
             <select name="grade" class="grade-list2">
@@ -342,7 +350,8 @@
           <input type="text" name="subtract" class="time-list2">
           <input type="submit" class="submit4">
         </div>
-        <div class="leader-title1">>M1/H1</div>
+      </form>
+                <div class="leader-title1">>M1/H1</div>
         <div class="leaderboard1">
             <table class="table1">
                 <tr>
