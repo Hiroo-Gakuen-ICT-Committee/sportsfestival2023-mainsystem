@@ -5,14 +5,15 @@ var fs   = require('fs');
 var bodyParser = require("body-parser");
 var path = require('path');
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const { error } = require("console");
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Daybreak2359',
-  database: 'sportsfestival'
+  database: 'sportsfestival',
 });
 
 app.use(
@@ -29,7 +30,15 @@ app.get("/manage",(req,res) =>{
 }
 );
 app.get("/setting",(req,res) =>{
-  res.render("setting.ejs");
+  connection.query(
+    "SELECT * FROM setting",
+    (error,results) =>{
+      console.log(results);
+      console.log(error);
+      res.render("setting.ejs");
+    }
+  )
+  
 }
 )
 app.post("/setting",(req,res) =>{
