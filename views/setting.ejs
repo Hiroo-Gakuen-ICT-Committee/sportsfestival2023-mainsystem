@@ -18,6 +18,93 @@
       <link rel="stylesheet" href="/css/setting.css">
 </head>
 <body>
-    
+    <div class="main"></div>
+    <ul class="header">
+        <li class="menu1"><a href="#competiton">>_競技設定</a></li>
+        <li class="menu2"><a href="#secret">>_表示内容切替</a></li>
+    </ul>
+    <div class="border"></div>
+    <div id="competition"></div>
+    <div class="main-title1">>_競技設定</div>
+    <form action="/setting" method="post">
+        <label>>競技_<input type="text" name="competition1" placeholder="競技名" class="comp-name">
+            <select name="kinds" class="kinds">
+                <option value="grades">学年のみ競技</option>
+                <option value="colors">色別のみ競技</option>
+                <option value="double">共通反映競技</option>
+            </select>
+            <select name="grade">
+                <option value="middle">中学</option>
+                <option value="high">高校</option>
+            </select>
+            <div class="box">
+            <div class="box">
+            <div class="point1">1位:</div><input type="number" name="point1" class="points" placeholder="点数">
+            </div>
+            <div class="box">
+                <div class="point2">2位:</div><input type="number" name="point2" class="points" placeholder="点数">
+            </div>
+            <div class="box">
+                <div class="point2">3位:</div><input type="number" name="point3" class="points" placeholder="点数">
+            </div>
+            <div class="box">
+                <div class="point2">4位:</div><input type="number" name="point4" class="points" placeholder="点数">
+            </div>
+            </div>
+            <div class="box">
+            <div class="box">
+                <div class="point1">5位:</div><input type="number" name="point5" class="points" placeholder="点数">
+            </div><div class="box">
+                <div class="point2">6位:</div><input type="number" name="point6" class="points" placeholder="点数">
+            </div><div class="box">
+                <div class="point2">7位:</div><input type="number" name="point7" class="points" placeholder="点数">
+            </div><div class="box">
+                <div class="point2">8位:</div><input type="number" name="point8" class="points" placeholder="点数">
+            </div>
+            <input type="submit" class="submit">
+                        </div>
+                </label>
+                
+                    
+    </form>
+    <table class="comp-logs">
+        <tr>
+            <th class="comp-title">競技名</th>
+            <th class="mh">中高</th>
+            <th class="subject">配点対象</th>        
+            <th class="first">一位得点</th>
+            <th class="second">二位得点</th>
+            <th class="third">三位得点</th>
+            <th class="fourth">四位得点</th>
+            <th class="fifth">五位得点</th>
+            <th class="sixth">六位得点</th>
+            <th class="seventh">七位得点</th>
+            <th class="eighth">八位得点</th>
+        </tr>
+        <tr>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+            <td>aa</td>
+                </tr>
+            </table>
+            <div id="secret"></div>
+        <div class="main2">
+            <div class="main-title2">>_表示内容切替</div>
+            <div class="secret-describe">
+                この操作は、大会終盤で点数を一時的に非公開にしたい場合や不具合が起きた場合などに全ての表示を秘匿化することができるものです。独断では行わないでください。
+            </div>
+            <form action="secret" method="post">
+            <input type="submit" class="submit2" name="secretbutton" value="秘匿化する">
+        </form>
+                </div>
+
 </body>
 </html>

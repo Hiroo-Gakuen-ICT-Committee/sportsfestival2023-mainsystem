@@ -1,0 +1,203 @@
+body{
+    background-color: #BCE1DF;
+}
+li{
+    list-style: none;
+    margin-left: 7vw;
+}
+a{
+    text-decoration: none;
+    color: #041a2c;
+}
+.header{
+    display: flex;
+    margin-top: -95vh;
+    width: 90vw;
+    justify-content: center;
+}
+.menu1{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+}
+.menu2{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+}
+.menu3{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-size: 3vh;
+    margin-top: 4vh;
+}
+
+.main{
+    width:90vw ;
+    height: 95vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 5vw;
+    margin-top: 2.5vh;
+    text-align: center;
+    overflow: scroll;
+}
+.border{
+    border:dashed 3px #d6a684 ;
+    width: 89.5vw;
+    margin-left: 5vw;
+    margin-top:2vh;
+}
+.main-title1{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    color: #333d85;
+    margin-top: 5vh;
+    margin-left: 7vw;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 15vw;
+}
+input{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 15vw;
+    height: 6vh;
+    text-align: center;
+}
+select{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 15vw;
+    height: 6vh;
+    text-align: center;
+}
+.comp-name{
+    width: 25vw;
+    margin-top:5vh ;
+    margin-left: 2vw;
+}
+label{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 10vh;
+    width: 10vw;
+}
+.point1{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 3vh;
+    width: 10vw;
+}
+.points{
+    margin-top: 2vh;
+    margin-left: -4.5vw;
+    width: 7vw;
+    text-align: center;
+}
+.box{
+    display: flex;
+}
+.point2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 2vw;
+    margin-top: 3vh;
+    width: 10vw;
+}
+button {
+    width: 10vw;
+    height:5vh ;
+    border-radius: 4px;
+    background-color: #d6a684;
+    color: white;
+    font-size:2vh ;
+    border: none;
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    margin-left: 8vw;
+    margin-top: 3vh;
+  }
+table{
+    border-collapse:separate;
+    border-spacing: 1vw;
+    width: 70vw;
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    margin-left: 15vw;
+    }
+
+table th,table td{
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+table th{
+    background-color: #d6a684;
+    color: white;
+}
+
+table td{
+    background-color: #e4d4bc;
+}
+.submit{
+    margin-left: 4vw;
+    margin-top: 2vh;
+    width: 7vw;
+}
+.main2{
+    width:90vw ;
+    height: 60vh;
+    background-color: #E6E7E8;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-left: 5vw;
+    margin-top: 2.5vh;
+    text-align: center;
+    overflow: scroll;
+}
+.main-title2{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    color: #333d85;
+    margin-top: 5vh;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 20vw;
+}
+.secret-describe{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2vh;
+    color: #041a2c;
+    margin-left: 20vw;
+    margin-top: 7vh;
+    width: 50vw;
+}
+.submit2{
+    margin-top: 3vh;
+    width: 12vw;
+}
