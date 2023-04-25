@@ -33,9 +33,7 @@ app.get("/setting",(req,res) =>{
   connection.query(
     "SELECT * FROM setting",
     (error,results) =>{
-      console.log(results);
-      console.log(error);
-      res.render("setting.ejs");
+      res.render("setting.ejs",{settings: results});
     }
   )
   
@@ -57,12 +55,38 @@ app.post("/setting",(req,res) =>{
       req.body.point7,
       req.body.point8,
     ],
-    (errow,results) =>{
-      console.log("neet");      
-      res.render("setting.ejs");
+    (errow,results) =>{  
+      res.redirect("/setting");
     }
   );
 });
-
+app.post("/classscore",(req,res) =>{
+    connection.query(
+      "INSERT INTO results (compname,grade,time1,rank1,time2,rank2,time3,rank3,time4,rank4,time5,rank5,time6,rank6,time7,rank7,time8,rank8) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      [
+        req.body.competition,
+        req.body.grade,
+        req.body.time1,
+        req.body.ranking1,
+        req.body.time2,
+        req.body.ranking2,
+        req.body.time3,
+        req.body.ranking3,
+        req.body.time4,
+        req.body.ranking4,
+        req.body.time5,
+        req.body.ranking5,
+        req.body.time6,
+        req.body.ranking6,
+        req.body.time7,
+        req.body.ranking7,
+        req.body.time8,
+        req.body.ranking8,
+      ],
+      (errow,results) =>{
+        res.redirect("/manage");
+      }
+    );
+});
 
 app.listen(3000);

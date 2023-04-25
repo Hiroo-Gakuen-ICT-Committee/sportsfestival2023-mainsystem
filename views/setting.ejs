@@ -18,8 +18,8 @@
       <link rel="stylesheet" href="/css/setting.css">
 </head>
 <body>
-    <div class="main"></div>
-    <ul class="header">
+    <div class="main">
+        <ul class="header">
         <li class="menu1"><a href="#competiton">>_競技設定</a></li>
         <li class="menu2"><a href="#secret">>_表示内容切替</a></li>
     </ul>
@@ -81,20 +81,23 @@
             <th class="seventh">七位得点</th>
             <th class="eighth">八位得点</th>
         </tr>
-        <tr>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-            <td>aa</td>
-                </tr>
+            <% settings.forEach((settings) =>{ %>
+            <tr>
+            <td><%= settings.competitiontitle %></td>
+            <td><%= settings.midhigh %></td>
+            <td><%= settings.subject %></td>
+            <td><%= settings.point1 %></td>
+            <td><%= settings.point2 %></td>
+            <td><%= settings.point3 %></td>
+            <td><%= settings.point4 %></td>
+            <td><%= settings.point5 %></td>
+            <td><%= settings.point6 %></td>
+            <td><%= settings.point7 %></td>
+            <td><%= settings.point8 %></td>
+        </tr>
+                        <% }); %> 
             </table>
+        </div>
             <div id="secret"></div>
         <div class="main2">
             <div class="main-title2">>_表示内容切替</div>

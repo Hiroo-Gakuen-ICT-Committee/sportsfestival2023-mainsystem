@@ -11,24 +11,20 @@ a{
 }
 .header{
     display: flex;
-    margin-top: -95vh;
-    width: 90vw;
+    width: 80vw;
     justify-content: center;
 }
 .menu1{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
-    margin-top: 4vh;
 }
 .menu2{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
-    margin-top: 4vh;
 }
 .menu3{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
-    margin-top: 4vh;
 }
 
 .main{
@@ -40,12 +36,11 @@ a{
     margin-left: 5vw;
     margin-top: 2.5vh;
     text-align: center;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .border{
     border:dashed 3px #d6a684 ;
     width: 89.5vw;
-    margin-left: 5vw;
     margin-top:2vh;
 }
 .main-title1{
@@ -55,7 +50,7 @@ a{
     font-size: 4vh;
     color: #333d85;
     margin-top: 5vh;
-    margin-left: 7vw;
+    margin-left: 2vw;
     border-right:3px solid #d6a684 ;
     padding-right: 0.25vw;
     width: 15vw;
@@ -93,9 +88,9 @@ label{
     font-style: normal;
     font-size: 3.7vh;
     color: #041a2c;
-    margin-left: 8vw;
     margin-top: 10vh;
     width: 10vw;
+    margin-left: -15vw;
 }
 .point1{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
@@ -103,13 +98,12 @@ label{
     font-style: normal;
     font-size: 3.7vh;
     color: #041a2c;
-    margin-left: 8vw;
+    margin-left: 2vw;
     margin-top: 3vh;
     width: 10vw;
 }
 .points{
     margin-top: 2vh;
-    margin-left: -4.5vw;
     width: 7vw;
     text-align: center;
 }
@@ -141,17 +135,18 @@ button {
 table{
     border-collapse:separate;
     border-spacing: 1vw;
-    width: 70vw;
+    width: 100vw;
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
-    margin-left: 15vw;
+    margin-left: 0;
+    display: block;
+    overflow:scroll ;
     }
 
 table th,table td{
     border-radius: 5px;
     text-align: center;
-    padding: 10px 0;
+    padding: 1vh 1vw;
 }
-
 table th{
     background-color: #d6a684;
     color: white;

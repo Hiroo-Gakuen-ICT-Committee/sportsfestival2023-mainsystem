@@ -83,7 +83,7 @@ select{
     border-radius: 5px;
     border: none;
     color: #041a2c;
-    width: 10vw;
+    width: 7vw;
     height: 7vh;
     text-align: center;
     margin-top: 4vh;
@@ -118,7 +118,7 @@ select{
     color: #041a2c;
     margin-left: 8vw;
     margin-top: 5vh;
-    width: 20vw;
+    width: 15vw;
 }
 .classes{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
@@ -147,10 +147,11 @@ input{
     margin-top: 1vh;
     margin-left: 5vw;
     height: 6vh;
-    width: 15vw;
+    width: 10vw;
 }
 .submits{
-    margin-left: 5vw;
+    margin-left: 76.5vw;
+    margin-top: 5vh;
     width: 10vw;
 }
 .main2{
