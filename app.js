@@ -26,7 +26,13 @@ app.get("/",(req,res) => {
 }
 );
 app.get("/manage",(req,res) =>{
-  res.render("manage.ejs");
+  connection.query(
+      "SELECT * FROM setting",
+      (error,results) =>{
+        console.log(results);
+        res.render("manage.ejs",{settings:results});
+      }
+  );
 }
 );
 app.get("/setting",(req,res) =>{
@@ -84,7 +90,21 @@ app.post("/classscore",(req,res) =>{
         req.body.ranking8,
       ],
       (errow,results) =>{
-        res.redirect("/manage");
+        connection.query(
+          "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),point8=(SELECT point8 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+              [req.body.competition,
+                req.body.competition,
+                req.body.competition,
+                req.body.competition,
+                req.body.competition,
+                req.body.competition,
+                req.body.competition,
+                req.body.competition,
+              ],
+            (errow,results2) =>{
+              res.redirect("/manage");
+          }  
+          ); 
       }
     );
 });
