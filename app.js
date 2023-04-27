@@ -29,7 +29,6 @@ app.get("/manage",(req,res) =>{
   connection.query(
       "SELECT * FROM setting",
       (error,results) =>{
-        console.log(results);
         res.render("manage.ejs",{settings:results});
       }
   );
@@ -102,11 +101,30 @@ app.post("/classscore",(req,res) =>{
                 req.body.competition,
               ],
             (errow,results2) =>{
-              res.redirect("/manage");
-          }  
+              connection.query(
+              "INSERT INTO pointsmh1 (competition,??,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7,point8 FROM results  ORDER BY id DESC LIMIT 1   ",
+              [
+                req.body.ranking1,
+                req.body.ranking2,
+                req.body.ranking3,
+                req.body.ranking4,
+                req.body.ranking5,
+                req.body.ranking6,
+                req.body.ranking7,
+                req.body.ranking8,
+              ],
+              (error,results4) =>{
+                console.log(error);
+                res.redirect("/manage");
+              }
+                
+                );
+            }
+        );
+          }   
           ); 
       }
     );
-});
+
 
 app.listen(3000);
