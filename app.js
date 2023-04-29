@@ -31,12 +31,26 @@ app.get("/",(req,res) => {
             connection.query(
               "SELECT * FROM pointsmh3",
               (error,results3) =>{
-                res.render("index.ejs",{points1:results,points2:results2,points3,results3});
+                connection.query(
+                  "SELECT * FROM plus1",
+                  (error,results4) =>{
+                    connection.query(
+                      "SELECT * FROM plus2",
+                      (error,results5) =>{
+                        connection.query(
+                          (error,results6) =>{
+                            res.render("index.ejs",{points1:results,points2:results2,points3:results3,plus1:results4,plus2:results5,plus3:results6});
+                          }
+                        );
+                      }
+                    );
+                  }
+                );
                 
               }
-            )
+            );
           }
-        )
+        );
       }
    );
 }
