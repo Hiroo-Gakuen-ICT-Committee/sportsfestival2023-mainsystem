@@ -130,6 +130,17 @@ select{
     margin-top: 2.5vh;
     width: 20vw;
 }
+.time7{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 15vw;
+    height: 6vh;
+    text-align: center;
+}
 input{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
     background-color:#d6a684 ;
@@ -151,7 +162,7 @@ input{
 }
 .submits{
     margin-left: 76.5vw;
-    margin-top: 5vh;
+    margin-top: -25vh;
     width: 10vw;
 }
 .main2{
