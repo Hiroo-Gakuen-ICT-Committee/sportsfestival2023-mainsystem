@@ -22,7 +22,7 @@ app.use(
    })
  );
 app.get("/",(req,res) => {
-   connection.query(
+    connection.query(
       "SELECT * FROM pointsmh1",
       (error,results) =>{
         connection.query(
@@ -38,21 +38,21 @@ app.get("/",(req,res) => {
                       "SELECT * FROM plus2",
                       (error,results5) =>{
                         connection.query(
+                          "SELECT * FROM plus3",
                           (error,results6) =>{
                             res.render("index.ejs",{points1:results,points2:results2,points3:results3,plus1:results4,plus2:results5,plus3:results6});
                           }
-                        );
+                        )
                       }
-                    );
-                  }
-                );
-                
+                    )
+                    }
+                    ); 
               }
             );
           }
         );
       }
-   );
+  );
 }
 );
 app.get("/manage",(req,res) =>{
@@ -145,19 +145,9 @@ app.post("/classscore",(req,res) =>{
                 connection.query(
                   "UPDATE plus1 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
                   (error,results5 )=> {
-                    connection.query(
-                      "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
-                      (error,results6 )=> {
-                        connection.query(
-                          "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
-                          (error,results6 )=> {
-                            res.redirect("/manage");
-                          } 
-                            )
-                      } 
-                        )
+                    res.redirect("/manage");
                   } 
-                    )
+                    );
               }
                 
                 );});
@@ -208,10 +198,14 @@ app.post("/classscore",(req,res) =>{
                     req.body.ranking8,
                   ],
                   (error,results4) =>{
-                    console.log(error);
-                    res.redirect("/manage");
+                    connection.query(
+                      "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh2),second=(SELECT SUM(second) FROM pointsmh2),third=(SELECT SUM(third) FROM pointsmh2),fourth=(SELECT SUM(fourth) FROM pointsmh2),fifth=(SELECT SUM(fifth) FROM pointsmh2),sixth=(SELECT SUM(sixth) FROM pointsmh2),seventh=(SELECT SUM(seventh) FROM pointsmh2)",
+                      (error,results5 )=> {
+                        res.redirect("/manage");
+                      } 
+                        );
                   }
-                    
+
                     );});
               }); 
       } else {
@@ -248,7 +242,7 @@ app.post("/classscore",(req,res) =>{
                   ],
                 (errow,results2) =>{
                   connection.query(
-                  "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                    "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
                   [
                     req.body.ranking1,
                     req.body.ranking2,
@@ -260,8 +254,12 @@ app.post("/classscore",(req,res) =>{
                     req.body.ranking8,
                   ],
                   (error,results4) =>{
-                    console.log(error);
-                    res.redirect("/manage");
+                    connection.query(
+                      "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh3),second=(SELECT SUM(second) FROM pointsmh3),third=(SELECT SUM(third) FROM pointsmh3),fourth=(SELECT SUM(fourth) FROM pointsmh3),fifth=(SELECT SUM(fifth) FROM pointsmh3),sixth=(SELECT SUM(sixth) FROM pointsmh3),seventh=(SELECT SUM(seventh) FROM pointsmh3)",
+                      (error,results5 )=> {
+                        res.redirect("/manage");
+                      } 
+                        );
                   }
                     
                     );});

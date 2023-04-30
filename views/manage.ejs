@@ -282,45 +282,111 @@
                 <div class="border"></div>
                 <div class="control-title">>_クラス結果修正</div>
                 <form action="/classrenew">
-                <div class="box">
-                      <div class="grade">>学年</div>
-                <select name="grade" class="grade-list">
-                  <option value="M1">M1</option>
-                  <option value="M2">M2</option>
-                  <option value="M3">M3</option>
-                  <option value="H1">H1</option>
-                  <option value="H2">H2</option>
-                  <option value="H3">H3</option>
-              </select>
-              <div class="competiton">>競技名</div>
-              <select name="competition" class="comp-list">
-                <option value="Male-sweadish">男子スウェーデンリレー</option>
-                <option value="Female-sweadish">女子スウェーデンリレー</option>
-                <option value="Male-classes">男子クラスリレー</option>
-                <option value="Female-classes">女子クラスリレー</option>
-            </select>   
-            <div class="class-title">>クラス</div>
-            <select name="class" class="class-list">
-              <option value="one">1組</option>
-              <option value="two">2組</option>
-              <option value="three">3組</option>
-            </select>
-          </div>
-            <div class="box">
-            <div class="time-title">>新規タイム</div>
-            <input type="text" name="time" class="time-list">
-            <div class="rank-title">>新規順位</div>
-            <select name="ranking" class="ranking2">
-              <option value="first">1位</option>
-              <option value="second">2位</option>
-              <option value="third">3位</option>
-              <option value="fourth">4位</option>
-              <option value="fifth">5位</option>
-              <option value="sixth">6位</option>
-              <option value="seventh">7位</option>
-            </select>
-            <input type="submit" class="submit3">
-          </form>
+                  <div class="box">
+                    <div class="grade">>学年</div>
+                    <select name="grade">
+                      <option value="M1">M1</option>
+                      <option value="M2">M2</option>
+                      <option value="M3">M3</option>
+                              </select>
+                    <div class="competiton">>競技名</div>
+                    <select name="competition" class="comp-list">
+                        <% settings.forEach((settings) =>{ %>
+                          <option value="<%= settings.competitiontitle %>"><%= settings.competitiontitle %></option>
+                        <% }); %>
+                    </select>
+                        </div>
+                  <div class="box">
+                    <div class="classes">1位</div>
+                    <input type="text" name="time1" placeholder="タイム">
+                    <select name="ranking1" class="ranking">
+                      <option value="first">1組</option>
+                      <option value="second">2組</option>
+                      <option value="third">3組</option>
+                      <option value="fourth">4組</option>
+                      <option value="fifth">5組</option>
+                      <option value="sixth">6組</option>
+                      <option value="seventh">7組</option>
+                      
+                    </select>
+                    <div class="classes">2位</div>
+                      <input type="text" name="time2" placeholder="タイム">
+                      <select name="ranking2" class="ranking">
+                        <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option>
+                        
+                      </select>
+                                  </div>
+                      <div class="box">
+                    <div class="classes">3位</div>
+                    <input type="text" name="time3" placeholder="タイム">
+                    <select name="ranking3" class="ranking">
+                      <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option>
+                    </select>
+                    <div class="classes">4位</div>
+                    <input type="text" name="time4" placeholder="タイム">
+                    <select name="ranking4" class="ranking">
+                      <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option>
+                    </select>
+                          </div>
+                  <div class="box">
+                    <div class="classes">5位</div>
+                    <input type="text" name="time5" placeholder="タイム">
+                    <select name="ranking5" class="ranking">
+                      <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option>
+                    </select>
+                    <div class="classes">6位</div>
+                    <input type="text" name="time6" placeholder="タイム">
+                    <select name="ranking6" class="ranking">
+                      <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option>
+                    </select>
+                  </div>
+                  
+                    <div class="box">
+                    <div class="classes">7位</div>
+                    <input type="text" class="time7" name="time7" placeholder="タイム">
+                    <select name="ranking7" class="ranking">
+                        <option value="first">1組</option>
+                        <option value="second">2組</option>
+                        <option value="third">3組</option>
+                        <option value="fourth">4組</option>
+                        <option value="fifth">5組</option>
+                        <option value="sixth">6組</option>
+                        <option value="seventh">7組</option> 
+                            </select>
+                            </div>
+                          <input type="submit" value="更新" class="submits">
+                            
+                          </form>
                 </div>
                 <form action="colorrenew">
                 <div class="control-title">>_色別結果修正</div>
@@ -350,35 +416,6 @@
             </div>
           </form>
           
-            <div class="control-title">>_各競技減点</div>
-            <form action="subtract">
-            <div class="box">
-            <div class="grade2">>学年</div>
-            <select name="grade" class="grade-list2">
-              <option value="M1/H1">M1/H1</option>
-              <option value="M2/H2">M2/H2</option>
-              <option value="M3/H3">M3/H3</option>
-          </select>
-          <div class="grade2">>競技名</div>
-          <select name="competition" class="comp-list">
-            <option value="Male-sweadish">男子スウェーデンリレー</option>
-            <option value="Female-sweadish">女子スウェーデンリレー</option>
-            <option value="Male-classes">男子クラスリレー</option>
-            <option value="Female-classes">女子クラスリレー</option>
-        </select>
-        </div>
-        <div class="box">
-          <div class="class-title2">>クラス</div>
-          <select name="class" class="class-list2">
-            <option value="one">1組</option>
-            <option value="two">2組</option>
-            <option value="three">3組</option>
-          </select>
-          <div class="subtract">>減点</div>
-          <input type="text" name="subtract" class="time-list2">
-          <input type="submit" class="submit4">
-        </div>
-      </form>
       <div id="check"></div>
                 <div class="leader-title1">>M1/H1</div>
         <div class="leaderboard1">
