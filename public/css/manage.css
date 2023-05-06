@@ -208,7 +208,7 @@ input{
     margin-left: 7vw;
     border-right:3px solid #d6a684 ;
     padding-right: 0.25vw;
-    width: 22vw;
+    width: 40vw;
 }
 .change-title{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
@@ -388,7 +388,7 @@ table td{
     font-size: 3.5vh;
     color: #041a2c;
     margin-left: 15vw;
-    margin-top: 5vh;
+    margin-top: 25vh;
     width: 10vw;
 }
 .leader-title2{
@@ -506,4 +506,44 @@ table td{
     margin-left: 15vw;
     margin-top: 5vh;
     width: 70vw;
+}
+.reduceclass{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 35vw;
+    white-space: nowrap;
+    }
+
+.reducelist{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 10vw;
+    height: 7vh;
+    text-align: center;
+    margin-top: 4vh;
+    margin-left: -20vw;
+}
+.submit5{
+    margin-left: 5vw;
+    width: 10vw;
+    margin-top: 5vh;
+}
+.competition3{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    width: 10vw;
 }

@@ -21,7 +21,7 @@
     <div class="main">
         <ul class="header">
         <li class="menu1"><a href="#competiton">>_競技設定</a></li>
-        <li class="menu2"><a href="#secret">>_表示内容切替</a></li>
+        <li class="menu2"><a href="#secret">>_色別設定</a></li>
     </ul>
     <div class="border"></div>
     <div id="competition"></div>
@@ -100,14 +100,271 @@
         </div>
             <div id="secret"></div>
         <div class="main2">
-            <div class="main-title2">>_表示内容切替</div>
-            <div class="secret-describe">
-                この操作は、大会終盤で点数を一時的に非公開にしたい場合や不具合が起きた場合などに全ての表示を秘匿化することができるものです。独断では行わないでください。
-            </div>
-            <form action="secret" method="post">
-            <input type="submit" class="submit2" name="secretbutton" value="秘匿化する">
-        </form>
+            <div class="main-title2">>_各クラス色設定</div>
+            <form action="/colorsetting" method="post">
+                        <div class="box">
+                <div class="box">
+                    <div class="point3">M1-1:</div>
+                    <select name="color11" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
                 </div>
+                <div class="box">
+                    <div class="point3">M1-2:</div>
+                    <select name="color12" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div>
+                <div class="box">
+                    <div class="point3">M1-3:</div>
+                    <select name="color13" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div>
+                <div class="box">
+                    <div class="point3">M1-4:</div>
+                    <select name="color14" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div>
+                </div>
+                <div class="box">
+                <div class="box">
+                    <div class="point3">M1-5:</div>
+                    <select name="color15" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div><div class="box">
+                    <div class="point3">M1-6:</div>
+                    <select name="color16" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div><div class="box">
+                    <div class="point3">M1-7:</div>
+                    <select name="color17" class="color1">
+                        <option value="red">赤色</option>
+                        <option value="orange">オレンジ</option>
+                        <option value="yellow">黄色</option>
+                        <option value="green">緑色</option>
+                        <option value="blue">青色</option>
+                        <option value="purple">紫色</option>
+                        <option value="black">黒色</option>
+                    </select>
+                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box">
+                                    <div class="point3">M2-1:</div>
+                                    <select name="color21" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div>
+                                <div class="box">
+                                    <div class="point3">M2-2:</div>
+                                    <select name="color22" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div>
+                                <div class="box">
+                                    <div class="point3">M2-3:</div>
+                                    <select name="color23" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div>
+                                <div class="box">
+                                    <div class="point3">M2-4:</div>
+                                    <select name="color24" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="box">
+                                <div class="box">
+                                    <div class="point3">M2-5:</div>
+                                    <select name="color25" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div><div class="box">
+                                    <div class="point3">M2-6:</div>
+                                    <select name="color26" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div><div class="box">
+                                    <div class="point3">M2-7:</div>
+                                    <select name="color27" class="color1">
+                                        <option value="red">赤色</option>
+                                        <option value="orange">オレンジ</option>
+                                        <option value="yellow">黄色</option>
+                                        <option value="green">緑色</option>
+                                        <option value="blue">青色</option>
+                                        <option value="purple">紫色</option>
+                                        <option value="black">黒色</option>
+                                    </select>
+                                </div>
+                
+                                            </div>
+                                            <div class="box">
+                                                <div class="box">
+                                                    <div class="point3">M3-1:</div>
+                                                    <select name="color31" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="point3">M3-2:</div>
+                                                    <select name="color32" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="point3">M3-3:</div>
+                                                    <select name="color33" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="point3">M3-4:</div>
+                                                    <select name="color34" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div>
+                                                </div>
+                                                <div class="box">
+                                                <div class="box">
+                                                    <div class="point3">M3-5:</div>
+                                                    <select name="color35" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div><div class="box">
+                                                    <div class="point3">M3-6:</div>
+                                                    <select name="color36" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                </div><div class="box">
+                                                    <div class="point3">M3-7:</div>
+                                                    <select name="color37" class="color1">
+                                                        <option value="red">赤色</option>
+                                                        <option value="orange">オレンジ</option>
+                                                        <option value="yellow">黄色</option>
+                                                        <option value="green">緑色</option>
+                                                        <option value="blue">青色</option>
+                                                        <option value="purple">紫色</option>
+                                                        <option value="black">黒色</option>
+                                                    </select>
+                                                    <input type="submit" class="submit">
+                                                </div>
+</div>
+                </form>
+            </div>
+
 
 </body>
 </html>

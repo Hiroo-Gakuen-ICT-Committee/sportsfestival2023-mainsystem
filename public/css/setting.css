@@ -196,3 +196,34 @@ table td{
     margin-top: 3vh;
     width: 12vw;
 }
+.gradetitle{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4vh;
+    margin-left: -60vw;
+    margin-top: 5vh;
+    color: #041a2c;
+}
+.color1{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 10vw;
+    height: 6vh;
+    margin-top: 2vh;
+    text-align: center;
+}
+.point3{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 1vw;
+    margin-top: 3vh;
+    width: 10vw;
+}

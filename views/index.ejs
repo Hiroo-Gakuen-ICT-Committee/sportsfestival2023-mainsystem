@@ -39,7 +39,6 @@
                         <td><%= points1.competition %></td>
                     <% }); %>
                     <td>合計</td>
-                    <td>順位</td>
                 </tr>
                 <tr>
                     <th class="classname">1-1</th>
@@ -191,7 +190,6 @@
                             <%= plus2.seventh %>
                         <% }); %>
                     </td>
-                    <td>順位</td>
                 </tr>
             </table>
         </div>
@@ -275,77 +273,105 @@
         <div class="leader-title4">色別</div>
         <div class="leaderboard4">
             <table class="table4">
-                <tr>
+                    <tr>
                     <th class="classname">カラー</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.competition %>
+                        </td>
+                    <% }); %>
                     <td>合計</td>
-                    <td>順位</td>
                     </tr>
                 <tr>
                     <th class="classname">赤</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                        <% colors.forEach ((colors) =>{ %>
+                            <td>
+                            <%= colors.red %>
+                            </td>
+                            <% }); %>
+                        <td>
+                            <% pluscolor.forEach ((pluscolor) =>{ %>
+                            <%= pluscolor.red %>
+                            <% }); %>
+                        </td>
                 </tr>
                 <tr>
                     <th class="classname">オレンジ</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.orange %>
+                        </td>
+                    <% }); %>
+                        <td>
+                            <% pluscolor.forEach ((pluscolor) =>{ %>
+                                <%= pluscolor.orange %>
+                                <% }); %>
+                        </td>
                 </tr>
                 <tr>
                     <th class="classname">黄</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.yellow %>
+                        </td>
+                    <% }); %>
+                    <td>
+                        <% pluscolor.forEach ((pluscolor) =>{ %>
+                            <%= pluscolor.yellow %>
+                            <% }); %>
+                    </td>
                 </tr>
                 <tr>
                     <th class="classname">緑</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.green %>
+                        </td>
+                    <% }); %>
+                    <td>
+                        <% pluscolor.forEach ((pluscolor) =>{ %>
+                            <%= pluscolor.green %>
+                            <% }); %>
+                    </td>
                 </tr>
                 <tr>
                     <th class="classname">青</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.blue %>
+                    </td>
+                    <% }); %>
+                    <td>
+                        <% pluscolor.forEach ((pluscolor) =>{ %>
+                            <%= pluscolor.blue %>
+                            <% }); %>
+                    </td>
                 </tr>
                 <tr>
                     <th class="classname">紫</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.purple %>
+                    </td>
+                    <% }); %>
+                    <td>
+                        <% pluscolor.forEach ((pluscolor) =>{ %>
+                            <%= pluscolor.purple %>
+                            <% }); %>
+                    </td>
                 </tr>
                 <tr>
                     <th class="classname">黒</th>
-                    <td>M1/H1</td>
-                    <td>M2/H2</td>
-                    <td>M3/H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
-                </tr>
-                <tr>
-                    <th class="classname">ピンク</th>
-                    <td>H1</td>
-                    <td>H2</td>
-                    <td>H3</td>
-                    <td>合計</td>
-                    <td>順位</td>
+                    <% colors.forEach ((colors) =>{ %>
+                        <td>
+                        <%= colors.black %>
+                    </td>
+                        <% }); %>
+                        <td>
+                            <% pluscolor.forEach ((pluscolor) =>{ %>
+                                <%= pluscolor.black %>
+                                <% }); %>
+                        </td>
                 </tr>
             </table>
         </div>
