@@ -37,3 +37,25 @@ input{
 .submit{
     margin-top: 5vh;
 }
+@media screen and (max-width:960px){
+    input{
+        width: 30vw;
+        margin-left:35vw ;
+    }
+    .username2{
+        text-align: center;
+    }
+    .password2{
+        text-align: center;
+    }
+}
+@media screen  and (min-width:520px){
+    .username2{
+        width: 40vw;
+        margin-left:30vw ;
+    }
+    .password2{
+        width: 40vw;
+        margin-left:30vw ;
+    }
+}

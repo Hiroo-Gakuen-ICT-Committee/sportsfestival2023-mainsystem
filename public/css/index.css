@@ -14,7 +14,7 @@ body{
     font-weight: 400;
     font-style: normal;
     list-style: none;
-    margin-left:50vw ;
+    margin-left:60vw ;
     margin-top: 3vh;
 }
 a{
@@ -28,7 +28,7 @@ a{
     font-weight: 400;
     font-style: normal;
     list-style: none;
-    margin-left:6vw ;
+    margin-left:10vw ;
     margin-top:3vh ;
 }
 .menu3{
@@ -241,3 +241,82 @@ table td{
     margin-top: 5vh;
     width: 70vw;
 }
+@media screen and (max-width:960px) {
+    .menu1{
+        font-size: 2.5vh;
+        margin-left: 22.5vw;
+    }
+    .menu2{
+        font-size: 2.5vh;
+    }
+    .menu3{
+        font-size: 2.5vh;
+    }
+    .main-logo{
+        font-size:17vw ;
+    }
+    .main-jap1{
+        margin-top:-40vh ;
+        margin-left: 2vw;
+        width: 100vw;
+    }
+    .main-jap2{
+        width:70vw ;
+        margin-top: 11vh;
+        margin-left: 15vw;
+    }
+    .main-title1{
+        width: 45vw;
+        margin-top: 15vh;
+        font-size: 4vh;
+    }
+    .leader-title1{
+        margin-left: 7vw;
+    }
+    .leaderboard1{
+        width: 90vw;
+        margin-left: 5vw;
+        height: 38vh;
+    }
+    table{
+        width: 90vw;
+    }
+    .leader-title2{
+        margin-left: 7vw;
+    }
+    .leaderboard2{
+        width: 90vw;
+        margin-left: 5vw;
+        height: 38vh;
+    }
+    .leader-title3{
+        margin-left: 7vw;
+    }
+    .leaderboard3{
+        width: 90vw;
+        margin-left: 5vw;
+        height: 38vh;
+    }
+    .leader-title4{
+        margin-left: 7vw;
+        width: 25vw;
+    }
+    .leaderboard4{
+        width: 90vw;
+        margin-left: 5vw;
+        height: 38vh;
+    }
+    .main-title2{
+        width: 50vw;
+        font-size: 4vh;
+    }
+    .timetable1{
+        width: 90vw;
+        margin-left: 5vw;
+        height: 38vh;
+    }
+    .table5{
+        margin-top: -38vh;
+        margin-left: 5vw;
+    }
+} 
