@@ -547,3 +547,86 @@ table td{
     margin-top: 5vh;
     width: 10vw;
 }
+@media screen and (max-width:960px){
+    .header{
+        display: none;
+    }
+    .border{
+        display: none;
+    }
+    .main-title1{
+        width: 50vw;
+        font-size: 3.5vh;
+        margin-top: -92vh;
+    }
+    .grade{
+        font-size: 3.5vh;
+        width: 20vw;
+    }
+    select{
+        width: 15vw;
+        font-size: 3vh;
+    }
+    .competiton{
+        font-size: 3.5vh;
+        width: 20vw;
+    }
+    .comp-list{
+        width: 35vw;
+    }
+    .point{
+        font-size: 3.5vh;
+        width: 40vw;
+    }
+    input{
+        width: 20vw;
+        margin-left: -5vw;
+    }
+    .time7{
+        width: 20vw;
+    }
+    .submits{
+        width: 20vw;
+        margin-left: 70vw;
+    }
+    .colors-title{
+        width: 40vw;
+        font-size: 3.5vh;
+        margin-top: -92vh;
+    }
+    .competiton2{
+        font-size: 3.5vh;
+        width: 30vw;
+    }
+    .comp-list1{
+        width: 45vw;
+        margin-left: -5vw;
+    }
+    .menu1{
+        display: none;
+    }
+    .menu2{
+        display: none;
+    }
+    .menu3{
+        display: none;
+    }
+    .menu4{
+        display: none;
+    }
+    .control-title{
+        font-size: 3vh;
+        width: 78vw;
+    }
+    .reducelist{
+        width: 20vw;
+        margin-left: 3vw;
+    }
+    .submit5{
+        width: 15vw;
+    }
+    .competition3{
+        font-size: 3.5vh;
+        width: 30vw;
+    }
+}

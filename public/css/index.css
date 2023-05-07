@@ -209,7 +209,7 @@ table td{
 }
 .timetable1{
     width:70vw ;
-    height: 62vh;
+    height: 75vh;
     background-color: #E6E7E8;
     box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.35);
     border-radius: 20px;
@@ -218,7 +218,7 @@ table td{
 }
 .table5{
     margin-left: 15vw;
-    margin-top: -62vh;
+    margin-top: -75vh;
 }
 .compet1-title{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
@@ -313,10 +313,83 @@ table td{
     .timetable1{
         width: 90vw;
         margin-left: 5vw;
-        height: 38vh;
+        height: 47vh;
     }
     .table5{
-        margin-top: -38vh;
+        margin-top: -47vh;
         margin-left: 5vw;
     }
 } 
+@media screen and (max-width:600px) {
+    .menu1{
+        width: 50vw;
+        margin-left: 5vw;
+    }
+    .menu2{
+        width: 60vw;
+        margin-left: 2vw;
+    }
+    .main-jap1{
+        display: none;
+    }
+    .main-jap2{
+        display: none;
+    }
+    .main-title1{
+        font-size: 3vh;
+        margin-top: 5vh;
+    }
+    .leader-title1{
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+    table{
+        font-size: 1.5vh;
+        width:200vw ;
+        overflow-x: scroll;
+        display: block;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .leaderboard1{
+        width: 90vw;
+        margin-left: 5vw;
+        overflow: scroll;
+    }
+    .leader-title2{
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+    .leaderboard2{
+        width: 90vw;
+        margin-left: 5vw;
+        overflow: scroll;
+    }
+    .leader-title3{
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+    .leaderboard3{
+        width: 90vw;
+        margin-left: 5vw;
+        overflow: scroll;
+    }
+    .leader-title4{
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+    }
+    .leaderboard4{
+        width: 90vw;
+        margin-left: 5vw;
+        overflow: scroll;
+    }
+    .timetable1{
+        height: 52vh;
+    }
+    .table5{
+        margin-top: -52vh;
+    }
+    .main-title2{
+        font-size: 3vh;
+    }
+}
