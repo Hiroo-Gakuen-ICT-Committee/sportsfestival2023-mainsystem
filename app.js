@@ -4,84 +4,130 @@ var http = require('http');
 var fs   = require('fs');
 var bodyParser = require("body-parser");
 var path = require('path');
+const session = require('express-session');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 const mysql = require('mysql2');
 const { error } = require("console");
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Daybreak2359',
   database: 'sportsfestival',
 });
-
+app.use(
+  session({
+    secret: "my_secret_key",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(
    express.urlencoded({
      extended: false,
    })
  );
+app.get("/login",(req,res) =>{
+  let sessionid = req.session.ID
+    res.render("login.ejs");
+});
+
+app.post("/login",(req,res) =>{
+    const username=req.body.username;
+    const password=req.body.password;
+    if (username==="hirogaku2023" && password==="20spofess23") {
+      req.session.regenerate((err) => {
+        req.session.username = 'hirogaku2023';
+        req.session.password='20spofess23';
+        res.redirect('/');
+      });
+    } else if (username==="liborpe2023" && password==="05manage25") {
+      req.session.username ='liborpe2023';
+      req.session.password ='05manage25';
+      res.redirect("/manage");
+    } else if (username==="mastersback2023" && password==="21brainsosmall37") {
+      req.session.username='mastersback2023';
+      req.session.password='21brainsosmall37';
+      res.redirect("/setting");
+    } else{
+      res.redirect("login");
+    }
+});
 app.get("/",(req,res) => {
-    connection.query(
-      "SELECT * FROM pointsmh1",
-      (error,results) =>{
-        connection.query(
-          "SELECT * FROM pointsmh2",
-          (error,results2) =>{
-            connection.query(
-              "SELECT * FROM pointsmh3",
-              (error,results3) =>{
-                connection.query(
-                  "SELECT * FROM plus1",
-                  (error,results4) =>{
-                    connection.query(
-                      "SELECT * FROM plus2",
-                      (error,results5) =>{
-                        connection.query(
-                          "SELECT * FROM plus3",
-                          (error,results6) =>{
-                            connection.query(
-                              "SELECT * FROM pointscolor ORDER BY competition LIKE 'M%'",
-                              (error,results7) =>{
-                                connection.query(
-                                  "SELECT * FROM pluscolor",
-                                  (error,results8) =>{
-                                    res.render("index.ejs",{points1:results,points2:results2,points3:results3,plus1:results4,plus2:results5,plus3:results6,colors:results7,pluscolor:results8});
-                                  }
-                                );
-                              }
-                            );
-                          }
-                        )
-                          }
-                    )
-                    }
-                    ); 
-              }
-            );
-          }
-        );
-      }
-  );
+    if (req.session.username=="hirogaku2023" && req.session.password=="20spofess23") {
+      connection.query(
+        "SELECT * FROM pointsmh1",
+        (error,results) =>{
+          connection.query(
+            "SELECT * FROM pointsmh2",
+            (error,results2) =>{
+              connection.query(
+                "SELECT * FROM pointsmh3",
+                (error,results3) =>{
+                  connection.query(
+                    "SELECT * FROM plus1",
+                    (error,results4) =>{
+                      connection.query(
+                        "SELECT * FROM plus2",
+                        (error,results5) =>{
+                          connection.query(
+                            "SELECT * FROM plus3",
+                            (error,results6) =>{
+                              connection.query(
+                                "SELECT * FROM pointscolor ORDER BY competition LIKE 'M%'",
+                                (error,results7) =>{
+                                  connection.query(
+                                    "SELECT * FROM pluscolor",
+                                    (error,results8) =>{
+                                      res.render("index.ejs",{points1:results,points2:results2,points3:results3,plus1:results4,plus2:results5,plus3:results6,colors:results7,pluscolor:results8});
+                                    }
+                                  );
+                                }
+                              );
+                            }
+                          )
+                            }
+                      )
+                      }
+                      ); 
+                }
+              );
+            }
+          );
+        }
+    );
+    } else {
+      res.redirect("/login");
+    }
 }
 );
 app.get("/manage",(req,res) =>{
-  connection.query(
+  if (req.session.username=="liborpe2023" && req.session.password=="05manage25") {
+    connection.query(
       "SELECT * FROM setting",
       (error,results) =>{
         res.render("manage.ejs",{settings:results});
       }
   );
+  } else {
+    res.redirect("/login");
+  }
+  
 }
 );
 app.get("/setting",(req,res) =>{
-  connection.query(
-    "SELECT * FROM setting",
-    (error,results) =>{
-      res.render("setting.ejs",{settings: results});
-    }
-  )
-  
+  if (req.session.username=="mastersback2023" && req.session.password=="21brainsosmall37") {
+    connection.query(
+      "SELECT * FROM setting",
+      (error,results) =>{
+        res.render("setting.ejs",{settings: results});
+      }
+    );
+  } else {
+    res.redirect("/login");
+  }
 }
 )
 app.post("/setting",(req,res) =>{

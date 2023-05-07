@@ -1,0 +1,39 @@
+body{
+    background-color: #BCE1DF;
+}
+.username{
+    color: #041a2c;
+    font-size: 4vh;
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    list-style: none;
+    text-align: center;
+    margin-top:12.5vh ;
+}
+input{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    background-color:#d6a684 ;
+    font-size: 3vh;
+    border-radius: 5px;
+    border: none;
+    color: #041a2c;
+    width: 15vw;
+    height: 6vh;
+    text-align: center;
+    margin-left: 42.5vw;
+    margin-top: 1vh;
+}
+.password{
+    color: #041a2c;
+    font-size: 4vh;
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    list-style: none;
+    text-align: center;
+    margin-top:10vh ;
+}
+.submit{
+    margin-top: 5vh;
+}
