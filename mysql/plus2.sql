@@ -8,3 +8,4 @@ CREATE table plus2 (
     sixth INT,
     seventh INT,
 );
+INSERT INTO plus2 (first,second,third,fourth,fifth,sixth,seventh) VALUES (0,0,0,0,0,0,0);

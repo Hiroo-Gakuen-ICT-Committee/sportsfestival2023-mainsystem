@@ -8,3 +8,4 @@ CREATE table pluscolor (
     purple INT,
     black INT,
 );
+
