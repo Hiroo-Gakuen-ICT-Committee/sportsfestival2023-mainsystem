@@ -107,9 +107,54 @@ app.get("/manage",(req,res) =>{
   if (req.session.username=="liborpe2023" && req.session.password=="05manage25") {
     connection.query(
       "SELECT * FROM setting",
-      (error,results) =>{
-        res.render("manage.ejs",{settings:results});
-      }
+      (error,results9) =>{
+        connection.query(
+          "SELECT * FROM pointsmh1",
+          (error,results) =>{
+            connection.query(
+              "SELECT * FROM pointsmh2",
+              (error,results2) =>{
+                connection.query(
+                  "SELECT * FROM pointsmh3",
+                  (error,results3) =>{
+                    connection.query(
+                      "SELECT * FROM plus1",
+                      (error,results4) =>{
+                        connection.query(
+                          "SELECT * FROM plus2",
+                          (error,results5) =>{
+                            connection.query(
+                              "SELECT * FROM plus3",
+                              (error,results6) =>{
+                                connection.query(
+                                  "SELECT * FROM pointscolor ORDER BY competition LIKE 'M%'",
+                                  (error,results7) =>{
+                                    connection.query(
+                                      "SELECT * FROM pluscolor",
+                                      (error,results8) =>{
+                                        connection.query(
+                                            "SELECT * FROM results",
+                                            (error,results9) =>{
+                                              res.render("manage.ejs",{settings:results9,points1:results,points2:results2,points3:results3,plus1:results4,plus2:results5,plus3:results6,colors:results7,pluscolor:results8,compresults:results9});
+                                            }
+                                        );
+                                        }
+                                    );
+                                  }
+                                );
+                              }
+                            )
+                              }
+                        )
+                        }
+                        ); 
+                  }
+                );
+              }
+            );
+          }
+      );
+                  }
   );
   } else {
     res.redirect("/login");
@@ -254,7 +299,7 @@ app.post("/classscore",(req,res) =>{
   });
   var sorted2 = arr.slice().sort(function(a,b)
       {return b.time-a.time});
-  if (req.body.competition=="大縄飛び") {
+  if (req.body.competition=="大縄跳び") {
     if (req.body.grade=="M1"){
       connection.query(
         "INSERT INTO results (compname,grade,time1,time2,time3,time4,time5,time6,time7,rank1,rank2,rank3,rank4,rank5,rank6,rank7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
@@ -278,8 +323,9 @@ app.post("/classscore",(req,res) =>{
         ],
         (errow,results) =>{
           connection.query(
-            "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+            "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                 [req.body.competition,
+                  req.body.competition,
                   req.body.competition,
                   req.body.competition,
                   req.body.competition,
@@ -289,7 +335,7 @@ app.post("/classscore",(req,res) =>{
                 ],
               (errow,results2) =>{
                 connection.query(
-                "INSERT INTO pointsmh1 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                "INSERT INTO pointsmh1 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                 [
                   sorted2[0].class,
                   sorted2[1].class,
@@ -303,27 +349,26 @@ app.post("/classscore",(req,res) =>{
                   connection.query(
                     "UPDATE plus1 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
                     (error,results5 )=> {
-                      connection.query(
-                        "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
-                        (error,results6) =>{
-                          connection.query(
-                            "DELETE FROM pointscolor WHERE competition='M1'",
-                            (error,results7)=>{
+                        connection.query(
+                          "SELECT subject FROM pointsmh1 ORDER BY id DESC LIMIT 1",
+                          (error,results6) =>{
+                            if (results6[0].subject=="double"){
                               connection.query(
                                 "SELECT colorm11,colorm12,colorm13,colorm14,colorm15,colorm16,colorm17 FROM colorsetting",
-                                (error,results8) =>{
+                                (error,results7) =>{
                                   connection.query(
-                                    "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M1',plusm11,plusm12,plusm13,plusm14,plusm15,plusm16,plusm17 FROM colorsetting",
+                                    "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
                                     [
-                                      results8[0].colorm11,
-                                      results8[0].colorm12,
-                                      results8[0].colorm13,
-                                      results8[0].colorm14,
-                                      results8[0].colorm15,
-                                      results8[0].colorm16,
-                                      results8[0].colorm17,
+                                      results7[0].colorm11,
+                                      results7[0].colorm12,
+                                      results7[0].colorm13,
+                                      results7[0].colorm14,
+                                      results7[0].colorm15,
+                                      results7[0].colorm16,
+                                      results7[0].colorm17,
+                                      req.body.competition,
                                     ],
-                                    (error,results9)  =>{
+                                    (error,results8) =>{
                                       connection.query(
                                         "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
                                         (error,results10) =>{
@@ -334,10 +379,11 @@ app.post("/classscore",(req,res) =>{
                                   );
                                 }
                               );
+                            } else {
+                              res.redirect("/manage");
                             }
-                          )
                           }
-                          );
+                        )
                         } 
                       );
                 }
@@ -347,7 +393,7 @@ app.post("/classscore",(req,res) =>{
         } else if (req.body.grade =="M2") {
           connection.query(
             "INSERT INTO results (compname,grade,time1,time2,time3,time4,time5,time6,time7,rank1,rank2,rank3,rank4,rank5,rank6,rank7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-            [
+              [
               req.body.competition,
               req.body.grade,
               req.body.time1,
@@ -367,8 +413,9 @@ app.post("/classscore",(req,res) =>{
             ],
             (errow,results) =>{
               connection.query(
-                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                     [req.body.competition,
+                      req.body.competition,
                       req.body.competition,
                       req.body.competition,
                       req.body.competition,
@@ -378,7 +425,7 @@ app.post("/classscore",(req,res) =>{
                     ],
                   (errow,results2) =>{
                     connection.query(
-                    "INSERT INTO pointsmh2 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                    "INSERT INTO pointsmh2 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                     [
                       sorted2[0].class,
                       sorted2[1].class,
@@ -390,43 +437,45 @@ app.post("/classscore",(req,res) =>{
                     ],
                     (error,results4) =>{
                       connection.query(
-                        "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
+                        "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh2),second=(SELECT SUM(second) FROM pointsmh2),third=(SELECT SUM(third) FROM pointsmh2),fourth=(SELECT SUM(fourth) FROM pointsmh2),fifth=(SELECT SUM(fifth) FROM pointsmh2),sixth=(SELECT SUM(sixth) FROM pointsmh2),seventh=(SELECT SUM(seventh) FROM pointsmh2)",
                         (error,results5 )=> {
                           connection.query(
-                            "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
-                            (error,results6) =>{
-                              connection.query(
-                                "DELETE FROM pointscolor WHERE competition='M2'",
-                                (error,results7)=>{
-                                  connection.query(
-                                    "SELECT colorm21,colorm22,colorm23,colorm24,colorm25,colorm26,colorm27 FROM colorsetting",
-                                    (error,results8) =>{
-                                      connection.query(
-                                        "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M2',plusm21,plusm22,plusm23,plusm24,plusm25,plusm26,plusm27 FROM colorsetting",
-                                        [
-                                          results8[0].colorm21,
-                                          results8[0].colorm22,
-                                          results8[0].colorm23,
-                                          results8[0].colorm24,
-                                          results8[0].colorm25,
-                                          results8[0].colorm26,
-                                          results8[0].colorm27
-                                        ],
-                                        (error,results9)  =>{
-                                          connection.query(
-                                            "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
-                                            (error,results10) =>{
-                                              res.redirect("/manage");
-                                            }
-                                          );
-                                        }
-                                      );
-                                    }
-                                  );
-                                }
-                              )
+                            "SELECT subject FROM pointsmh2 ORDER BY id DESC LIMIT 1",
+                                (error,results6) =>{
+                              if (results6[0].subject=="double"){
+                                connection.query(
+                                  "SELECT colorm21,colorm22,colorm23,colorm24,colorm25,colorm26,colorm27 FROM colorsetting",
+                                  (error,results7) =>{
+                                    connection.query(
+                                      "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
+                                      [
+                                        results7[0].colorm21,
+                                        results7[0].colorm22,
+                                        results7[0].colorm23,
+                                        results7[0].colorm24,
+                                        results7[0].colorm25,
+                                        results7[0].colorm26,
+                                        results7[0].colorm27,
+                                        req.body.competition,
+                                      ],
+                                      (error,results8) =>{
+                                        connection.query(
+                                          "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
+                                          (error,results10) =>{
+                                            res.redirect("/manage");
+                                            console.log(results6[0].subject);
+                                            console.log(results7[0].colorm21);
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              } else {
+                                res.redirect("/manage");
                               }
-                              );
+                            }
+                          )
                         } 
                           );
                     }
@@ -457,8 +506,9 @@ app.post("/classscore",(req,res) =>{
             ],
             (errow,results) =>{
               connection.query(
-                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                     [req.body.competition,
+                      req.body.competition,
                       req.body.competition,
                       req.body.competition,
                       req.body.competition,
@@ -468,7 +518,7 @@ app.post("/classscore",(req,res) =>{
                     ],
                   (errow,results2) =>{
                     connection.query(
-                    "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                    "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                     [
                       sorted2[0].class,
                       sorted2[1].class,
@@ -480,43 +530,43 @@ app.post("/classscore",(req,res) =>{
                     ],
                     (error,results4) =>{
                       connection.query(
-                        "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
+                        "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh3),second=(SELECT SUM(second) FROM pointsmh3),third=(SELECT SUM(third) FROM pointsmh3),fourth=(SELECT SUM(fourth) FROM pointsmh3),fifth=(SELECT SUM(fifth) FROM pointsmh3),sixth=(SELECT SUM(sixth) FROM pointsmh3),seventh=(SELECT SUM(seventh) FROM pointsmh3)",
                         (error,results5 )=> {
                           connection.query(
-                            "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
+                            "SELECT * FROM pointsmh3 ORDER BY id DESC LIMIT 1",
                             (error,results6) =>{
-                              connection.query(
-                                "DELETE FROM pointscolor WHERE competition='M3'",
-                                (error,results7)=>{
-                                  connection.query(
-                                    "SELECT colorm31,colorm32,colorm33,colorm34,colorm35,colorm36,colorm37 FROM colorsetting",
-                                    (error,results8) =>{
-                                      connection.query(
-                                        "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M3',plusm31,plusm32,plusm33,plusm34,plusm35,plusm36,plusm37 FROM colorsetting",
-                                        [
-                                          results8[0].colorm31,
-                                          results8[0].colorm32,
-                                          results8[0].colorm33,
-                                          results8[0].colorm34,
-                                          results8[0].colorm35,
-                                          results8[0].colorm36,
-                                          results8[0].colorm37,
-                                        ],
-                                        (error,results9)  =>{
-                                          connection.query(
-                                            "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
-                                            (error,results10) =>{
-                                              res.redirect("/manage");
-                                            }
-                                          );
-                                        }
-                                      );
-                                    }
-                                  );
-                                }
-                              );
-                            } 
-                          );
+                              if (results6[0].subject=="double"){
+                                connection.query(
+                                  "SELECT colorm31,colorm32,colorm33,colorm34,colorm35,colorm36,colorm37 FROM colorsetting",
+                                  (error,results7) =>{
+                                    connection.query(
+                                      "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
+                                      [
+                                        results7[0].colorm31,
+                                        results7[0].colorm32,
+                                        results7[0].colorm33,
+                                        results7[0].colorm34,
+                                        results7[0].colorm35,
+                                        results7[0].colorm36,
+                                        results7[0].colorm37,
+                                        req.body.competition,
+                                      ],
+                                      (error,results8) =>{
+                                        connection.query(
+                                          "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
+                                          (error,results10) =>{
+                                            res.redirect("/manage");
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              } else {
+                                res.redirect("/manage");
+                              }
+                            }
+                          )
                     }
                       
                       );});
@@ -547,8 +597,9 @@ app.post("/classscore",(req,res) =>{
         ],
         (errow,results) =>{
           connection.query(
-            "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+            "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                 [req.body.competition,
+                  req.body.competition,
                   req.body.competition,
                   req.body.competition,
                   req.body.competition,
@@ -558,7 +609,7 @@ app.post("/classscore",(req,res) =>{
                 ],
               (errow,results2) =>{
                 connection.query(
-                "INSERT INTO pointsmh1 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                "INSERT INTO pointsmh1 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                 [
                   sorted[0].class,
                   sorted[1].class,
@@ -573,40 +624,40 @@ app.post("/classscore",(req,res) =>{
                     "UPDATE plus1 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
                     (error,results5 )=> {
                       connection.query(
-                        "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
+                        "SELECT * FROM pointsmh1 ORDER BY id DESC LIMIT 1",
                         (error,results6) =>{
-                          connection.query(
-                            "DELETE FROM pointscolor WHERE competition='M1'",
-                            (error,results7)=>{
-                              connection.query(
-                                "SELECT colorm11,colorm12,colorm13,colorm14,colorm15,colorm16,colorm17 FROM colorsetting",
-                                (error,results8) =>{
-                                  connection.query(
-                                    "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M1',plusm11,plusm12,plusm13,plusm14,plusm15,plusm16,plusm17 FROM colorsetting",
-                                    [
-                                      results8[0].colorm11,
-                                      results8[0].colorm12,
-                                      results8[0].colorm13,
-                                      results8[0].colorm14,
-                                      results8[0].colorm15,
-                                      results8[0].colorm16,
-                                      results8[0].colorm17,
-                                    ],
-                                    (error,results9)  =>{
-                                      connection.query(
-                                        "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
-                                        (error,results10) =>{
-                                          res.redirect("/manage");
-                                        }
-                                      );
-                                    }
-                                  );
-                                }
-                              );
-                            }
-                          )
+                          if (results6[0].subject=="double"){
+                            connection.query(
+                              "SELECT colorm11,colorm12,colorm13,colorm14,colorm15,colorm16,colorm17 FROM colorsetting",
+                              (error,results7) =>{
+                                connection.query(
+                                  "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
+                                  [
+                                    results7[0].colorm11,
+                                    results7[0].colorm12,
+                                    results7[0].colorm13,
+                                    results7[0].colorm14,
+                                    results7[0].colorm15,
+                                    results7[0].colorm16,
+                                    results7[0].colorm17,
+                                    req.body.competition,
+                                  ],
+                                  (error,results8) =>{
+                                    connection.query(
+                                      "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
+                                      (error,results10) =>{
+                                        res.redirect("/manage");
+                                      }
+                                    );
+                                  }
+                                );
+                              }
+                            );
+                          } else {
+                            res.redirect("/manage");
                           }
-                          );
+                        }
+                      )
                     } 
                       );
                 }
@@ -636,8 +687,9 @@ app.post("/classscore",(req,res) =>{
             ],
             (errow,results) =>{
               connection.query(
-                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                     [req.body.competition,
+                      req.body.competition,
                       req.body.competition,
                       req.body.competition,
                       req.body.competition,
@@ -647,7 +699,7 @@ app.post("/classscore",(req,res) =>{
                     ],
                   (errow,results2) =>{
                     connection.query(
-                    "INSERT INTO pointsmh2 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                    "INSERT INTO pointsmh2 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                     [
                       sorted[0].class,
                       sorted[1].class,
@@ -659,43 +711,43 @@ app.post("/classscore",(req,res) =>{
                     ],
                     (error,results4) =>{
                       connection.query(
-                        "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
+                        "UPDATE plus2 SET first=(SELECT SUM(first) FROM pointsmh2),second=(SELECT SUM(second) FROM pointsmh2),third=(SELECT SUM(third) FROM pointsmh2),fourth=(SELECT SUM(fourth) FROM pointsmh2),fifth=(SELECT SUM(fifth) FROM pointsmh2),sixth=(SELECT SUM(sixth) FROM pointsmh2),seventh=(SELECT SUM(seventh) FROM pointsmh2)",
                         (error,results5 )=> {
                           connection.query(
-                            "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
+                            "SELECT * FROM pointsmh2 ORDER BY id DESC LIMIT 1",
                             (error,results6) =>{
-                              connection.query(
-                                "DELETE FROM pointscolor WHERE competition='M2'",
-                                (error,results7)=>{
-                                  connection.query(
-                                    "SELECT colorm21,colorm22,colorm23,colorm24,colorm25,colorm26,colorm27 FROM colorsetting",
-                                    (error,results8) =>{
-                                      connection.query(
-                                        "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M2',plusm21,plusm22,plusm23,plusm24,plusm25,plusm26,plusm27 FROM colorsetting",
-                                        [
-                                          results8[0].colorm21,
-                                          results8[0].colorm22,
-                                          results8[0].colorm23,
-                                          results8[0].colorm24,
-                                          results8[0].colorm25,
-                                          results8[0].colorm26,
-                                          results8[0].colorm27,
-                                        ],
-                                        (error,results9)  =>{
-                                          connection.query(
-                                            "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
-                                            (error,results10) =>{
-                                              res.redirect("/manage");
-                                            }
-                                          );
-                                        }
-                                      );
-                                    }
-                                  );
-                                }
-                              )
+                              if (results6[0].subject=="double"){
+                                connection.query(
+                                  "SELECT colorm21,colorm22,colorm23,colorm24,colorm25,colorm26,colorm27 FROM colorsetting",
+                                  (error,results7) =>{
+                                    connection.query(
+                                      "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
+                                      [
+                                        results7[0].colorm21,
+                                        results7[0].colorm22,
+                                        results7[0].colorm23,
+                                        results7[0].colorm24,
+                                        results7[0].colorm25,
+                                        results7[0].colorm26,
+                                        results7[0].colorm27,
+                                        req.body.competition,
+                                      ],
+                                      (error,results8) =>{
+                                        connection.query(
+                                          "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
+                                          (error,results10) =>{
+                                            res.redirect("/manage");
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              } else {
+                                res.redirect("/manage");
                               }
-                              );
+                            }
+                          )
                         } 
                           );
                     }
@@ -726,8 +778,9 @@ app.post("/classscore",(req,res) =>{
             ],
             (errow,results) =>{
               connection.query(
-                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
+                "UPDATE results SET point1=(SELECT point1 FROM setting WHERE competitiontitle=?),point2=(SELECT point2 FROM setting WHERE competitiontitle=?),point3=(SELECT point3 FROM setting WHERE competitiontitle=?),point4=(SELECT point4 FROM setting WHERE competitiontitle=?),point5=(SELECT point5 FROM setting WHERE competitiontitle=?),point6=(SELECT point6 FROM setting WHERE competitiontitle=?),point7=(SELECT point7 FROM setting WHERE competitiontitle=?),subject=(SELECT subject FROM setting WHERE competitiontitle=?) ORDER BY id DESC LIMIT 1 ",
                     [req.body.competition,
+                      req.body.competition,
                       req.body.competition,
                       req.body.competition,
                       req.body.competition,
@@ -737,7 +790,7 @@ app.post("/classscore",(req,res) =>{
                     ],
                   (errow,results2) =>{
                     connection.query(
-                    "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??) SELECT compname,point1,point2,point3,point4,point5,point6,point7 FROM results  ORDER BY id DESC LIMIT 1   ",
+                    "INSERT INTO pointsmh3 (competition,??,??,??,??,??,??,??,subject) SELECT compname,point1,point2,point3,point4,point5,point6,point7,subject FROM results  ORDER BY id DESC LIMIT 1   ",
                     [
                       sorted[0].class,
                       sorted[1].class,
@@ -749,43 +802,46 @@ app.post("/classscore",(req,res) =>{
                     ],
                     (error,results4) =>{
                       connection.query(
-                        "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh1),second=(SELECT SUM(second) FROM pointsmh1),third=(SELECT SUM(third) FROM pointsmh1),fourth=(SELECT SUM(fourth) FROM pointsmh1),fifth=(SELECT SUM(fifth) FROM pointsmh1),sixth=(SELECT SUM(sixth) FROM pointsmh1),seventh=(SELECT SUM(seventh) FROM pointsmh1)",
+                        "UPDATE plus3 SET first=(SELECT SUM(first) FROM pointsmh3),second=(SELECT SUM(second) FROM pointsmh3),third=(SELECT SUM(third) FROM pointsmh3),fourth=(SELECT SUM(fourth) FROM pointsmh3),fifth=(SELECT SUM(fifth) FROM pointsmh3),sixth=(SELECT SUM(sixth) FROM pointsmh3),seventh=(SELECT SUM(seventh) FROM pointsmh3)",
                         (error,results5 )=> {
                           connection.query(
-                            "UPDATE colorsetting SET plusm11=(SELECT first FROM plus1),plusm12=(SELECT second FROM plus1),plusm13=(SELECT third FROM plus3),plusm14=(SELECT fourth FROM plus1),plusm15=(SELECT fifth FROM plus1),plusm16=(SELECT sixth FROM plus1),plusm17=(SELECT seventh FROM plus1),plusm21=(SELECT first FROM plus2),plusm22=(SELECT second FROM plus2),plusm23=(SELECT third FROM plus2),plusm24=(SELECT fourth FROM plus2),plusm25=(SELECT fifth FROM plus2),plusm26=(SELECT sixth FROM plus2),plusm27=(SELECT seventh FROM plus2),plusm31=(SELECT first FROM plus3),plusm32=(SELECT second FROM plus3),plusm33=(SELECT third FROM plus3),plusm34=(SELECT fourth FROM plus3),plusm35=(SELECT fifth FROM plus3),plusm36=(SELECT sixth FROM plus3),plusm37=(SELECT seventh FROM plus3)",
+                            "SELECT * FROM pointsmh3 ORDER BY id DESC LIMIT 1",
                             (error,results6) =>{
-                              connection.query(
-                                "DELETE FROM pointscolor WHERE competition='M3'",
-                                (error,results7)=>{
+                              if (results6[0].subject=="double"){
                                   connection.query(
-                                    "SELECT colorm31,colorm32,colorm33,colorm34,colorm35,colorm36,colorm37 FROM colorsetting",
-                                    (error,results8) =>{
-                                      connection.query(
-                                        "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT 'M3',plusm31,plusm32,plusm33,plusm34,plusm35,plusm36,plusm37 FROM colorsetting",
-                                        [
-                                          results8[0].colorm31,
-                                          results8[0].colorm32,
-                                          results8[0].colorm33,
-                                          results8[0].colorm34,
-                                          results8[0].colorm35,
-                                          results8[0].colorm36,
-                                          results8[0].colorm37,
-                                        ],
-                                        (error,results9)  =>{
-                                          connection.query(
-                                            "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
-                                            (error,results10) =>{
-                                              res.redirect("/manage");
-                                            }
-                                          );
-                                        }
-                                      );
+                                  "SELECT colorm31,colorm32,colorm33,colorm34,colorm35,colorm36,colorm37 FROM colorsetting",
+                                  (error,results7) =>{
+                                    connection.query(
+                                      "INSERT INTO pointscolor (competition,??,??,??,??,??,??,??) SELECT competition,first,second,third,fourth,fifth,sixth,seventh FROM pointsmh3 WHERE competition=?",
+                                      [
+                                        results7[0].colorm31,
+                                        results7[0].colorm32,
+                                        results7[0].colorm33,
+                                        results7[0].colorm34,
+                                        results7[0].colorm35,
+                                        results7[0].colorm36,
+                                        results7[0].colorm37,
+                                        req.body.competition,
+                                      ],
+                                      (error,results8) =>{
+                                        connection.query(
+                                          "UPDATE pluscolor SET red=(SELECT SUM(red) FROM pointscolor),orange=(SELECT SUM(orange) FROM pointscolor),yellow=(SELECT SUM(yellow) FROM pointscolor),green=(SELECT SUM(green) FROM pointscolor),blue=(SELECT SUM(blue) FROM pointscolor),purple=(SELECT SUM(purple) FROM pointscolor),black=(SELECT SUM(black) FROM pointscolor)",
+                                          (error,results10) =>{
+                                            console.log(error);
+                                            console.log(results7[0].colorm31);
+                                            res.redirect("/manage");
+                                        
+                                          }
+                                        );
                                     }
-                                  );
-                                }
-                              )
+                                    );
+                                  }
+                                );
+                              } else {
+                                res.redirect("/manage");
                               }
-                              );
+                            }
+                          )
                         } 
                           );
                     }
@@ -1406,10 +1462,10 @@ app.post("/classrenew",(req,res) =>{
   
     }
     );
-app.post("/classreduce",(req,res) =>{
+    app.post("/classreduce",(req,res) =>{
     if (req.body.grade=="M1"){
       connection.query(
-        "UPDATE pointsmh1 SET ??=??/2 WHERE competition=?",
+        "UPDATE pointsmh1 SET ??=TRUNCATE(??/2,0) WHERE competition=?",
         [
           req.body.classes,
           req.body.classes,
@@ -1422,7 +1478,7 @@ app.post("/classreduce",(req,res) =>{
       );
     } else if (req.body.grade=="M2") {
       connection.query(
-        "UPDATE pointsmh2 SET ??=??/2 WHERE competition=?",
+        "UPDATE pointsmh2 SET ??=TRUNCATE(??/2) WHERE competition=?",
         [
           req.body.classes,
           req.body.classes,
@@ -1434,7 +1490,7 @@ app.post("/classreduce",(req,res) =>{
       );
     } else{
       connection.query(
-        "UPDATE pointsmh3 SET ??=??/2 WHERE competition=?",
+        "UPDATE pointsmh3 SET ??=TRUNCATE(??/2) WHERE competition=?",
         [
           req.body.classes,
           req.body.classes,
@@ -1517,7 +1573,7 @@ app.post("/colorrenew",(req,res) =>{
 });
 app.post("colorreduce",(req,res) =>{
   connection.query(
-    "UPDATE pointscolor SET ??=??/2 WHERE competition=?",
+    "UPDATE pointscolor SET ??=TRUNCATE(??/2) WHERE competition=?",
     [
       req.body.classes,
       req.body.classes,

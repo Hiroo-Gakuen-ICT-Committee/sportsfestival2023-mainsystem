@@ -13,6 +13,22 @@ a{
     margin-top: -95vh;
     width: 90vw;
 }
+table{
+    margin-left: 10vw;
+}
+table th,table td{
+    border-radius: 5px;
+    text-align: center;
+    padding: 1vh 1vw;
+}
+table th{
+    background-color: #d6a684;
+    color: white;
+}
+
+table td{
+    background-color: #e4d4bc;
+}
 .menu1{
     font-family: "maru-maru-gothic-blr-stdn", sans-serif;
     font-size: 3vh;
@@ -544,6 +560,58 @@ table td{
     font-size: 3.7vh;
     color: #041a2c;
     margin-left: 8vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.data-title{
+    font-family: "maru-maru-gothic-blr-stdn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5vh;
+    color: #333d85;
+    margin-top: 4vh;
+    margin-left: 2vw;
+    border-right:3px solid #d6a684 ;
+    padding-right: 0.25vw;
+    width: 20vw;
+}
+.leader-title1{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leader-title2{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leader-title3{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    width: 10vw;
+}
+.leader-title4{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5vh;
+    color: #041a2c;
+    margin-left: 3vw;
     margin-top: 5vh;
     width: 10vw;
 }
