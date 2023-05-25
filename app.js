@@ -1490,29 +1490,57 @@ app.post("/classrenew",(req,res) =>{
         );
       }
       } else if (req.body.grade=="M2") {
-      connection.query(
-        "UPDATE pointsmh2 SET ??=TRUNCATE(??/2) WHERE competition=?",
-        [
-          req.body.classes,
-          req.body.classes,
-          req.body.competition,
-        ],
-        (error,results2)=>{
-          res.redirect("/manage")
+        if (req.body.reasons=="half") {
+          connection.query(
+            "UPDATE pointsmh2 SET ??=TRUNCATE(??/2,0) WHERE competition=?",
+            [
+              req.body.classes,
+              req.body.classes,
+              req.body.competition,
+            ],
+            (error,results3)=>{
+              res.redirect("/manage")
+              console.log(error);
+            }
+          );
+        } else {
+          connection.query(
+            "UPDATE pointsmh2 SET ??=0 WHERE competition=?",
+            [
+              req.body.classes,
+              req.body.competition,
+            ],
+            (error,results4) =>{
+              res.redirect("/manage");
+            }
+          );
         }
-      );
-    } else{
-      connection.query(
-        "UPDATE pointsmh3 SET ??=TRUNCATE(??/2) WHERE competition=?",
-        [
-          req.body.classes,
-          req.body.classes,
-          req.body.competition,
-        ],
-        (error,results)=>{
-          res.redirect("/manage")
+      } else{
+        if (req.body.reasons=="half") {
+          connection.query(
+            "UPDATE pointsmh3 SET ??=TRUNCATE(??/2,0) WHERE competition=?",
+            [
+              req.body.classes,
+              req.body.classes,
+              req.body.competition,
+            ],
+            (error,results5)=>{
+              res.redirect("/manage")
+              console.log(error);
+            }
+          );
+        } else {
+          connection.query(
+            "UPDATE pointsmh3 SET ??=0 WHERE competition=?",
+            [
+              req.body.classes,
+              req.body.competition,
+            ],
+            (error,results6) =>{
+              res.redirect("/manage");
+            }
+          );
         }
-      );
     }
 }
 );
