@@ -168,7 +168,7 @@
                           </form>
                 </div>
                 <form action="/classreduce" method="post">
-                  <div class="control-title">>_クラス得点減点</div>
+                  <div class="control-title">>_クラス得点減点・棄権</div>
                   <div class="box">
                     <div class="grade">>学年</div>
                     <select name="grade">
@@ -193,6 +193,11 @@
                       <option value="fifth">5組</option>
                       <option value="sixth">6組</option>
                       <option value="seventh">7組</option>
+                    </select>
+                    <div class="reasons">>_減点理由</div>
+                    <select name="reasons" class="reason">
+                        <option value="half">ハーフペナルティー</option>
+                        <option value="giveup">減点</option>
                     </select>
                     <input type="submit" value="更新" class="submit5">
                         </div>
@@ -265,7 +270,11 @@
                   <option value="sixth">紫色</option>
                   <option value="seventh">黒色</option>
                 </select>
-                <input type="submit" value="更新" class="submit5">
+                <select name="reasons" class="reason">
+                    <option value="half">ハーフペナルティー</option>
+                    <option value="giveup">減点</option>
+                </select>
+                                <input type="submit" value="更新" class="submit5">
                     </div>
                     
             </form>
@@ -611,7 +620,7 @@
 <div class="leader-title4">>_競技結果</div>
 <table class="comp-logs">
   <tr>
-      <th class="comp-title">競技名</th>     
+      <th class="comp-title">競技名</th>    
       <th class="first">一組記録</th>
       <th class="second">ニ組記録</th>
       <th class="third">三組記録</th>

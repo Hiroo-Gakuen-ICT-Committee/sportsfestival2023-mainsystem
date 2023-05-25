@@ -1464,19 +1464,32 @@ app.post("/classrenew",(req,res) =>{
     );
     app.post("/classreduce",(req,res) =>{
     if (req.body.grade=="M1"){
-      connection.query(
-        "UPDATE pointsmh1 SET ??=TRUNCATE(??/2,0) WHERE competition=?",
-        [
-          req.body.classes,
-          req.body.classes,
-          req.body.competition,
-        ],
-        (error,results)=>{
-          res.redirect("/manage")
-          console.log(error);
-        }
-      );
-    } else if (req.body.grade=="M2") {
+      if (req.body.reasons=="half") {
+        connection.query(
+          "UPDATE pointsmh1 SET ??=TRUNCATE(??/2,0) WHERE competition=?",
+          [
+            req.body.classes,
+            req.body.classes,
+            req.body.competition,
+          ],
+          (error,results)=>{
+            res.redirect("/manage")
+            console.log(error);
+          }
+        );
+      } else {
+        connection.query(
+          "UPDATE pointsmh1 SET ??=0 WHERE competition=?",
+          [
+            req.body.classes,
+            req.body.competition,
+          ],
+          (error,results2) =>{
+            res.redirect("/manage");
+          }
+        );
+      }
+      } else if (req.body.grade=="M2") {
       connection.query(
         "UPDATE pointsmh2 SET ??=TRUNCATE(??/2) WHERE competition=?",
         [

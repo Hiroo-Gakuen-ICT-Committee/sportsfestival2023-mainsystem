@@ -118,6 +118,16 @@ select{
     margin-top: 5vh;
     width: 10vw;
 }
+.reasons{
+    font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.7vh;
+    color: #041a2c;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    width: 15vw;
+}
 .comp-list{
     width: 25vw;
     margin-left: 1vw;
@@ -262,6 +272,9 @@ input{
 .time-list{
     margin-left: -1vw;
     margin-top: 4vh;
+}
+.reason{
+    width: 25vw;
 }
 .rank-title{
     font-family:"maru-maru-gothic-blr-stdn", sans-serif ;
