@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  app:
+    image: node:18.15.0-slim
+    container_name: app
+    ports:
+      - 3000:3000
+    working_dir: /app
+    command: sh -c "
+            npm install -g npm@9.6.5&&
+            npm install&&
+            npm install pm2 -g&&
+            node app.js"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    tty: true
+    stdin_open: true
+    networks:
+      sportsfestival2023:
+        ipv4_address: 192.168.10.2
+  db:
+    image: mysql:8.0.32
+    container_name: db
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "aBNRG_e_M4mZ"
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./ini:/docker-entrypoint-initdb.d
+      #- ./db:/var/lib/mysql
+    networks:
+      sportsfestival2023:
+        ipv4_address: 192.168.10.4
+networks:
+  sportsfestival2023:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.1/24
