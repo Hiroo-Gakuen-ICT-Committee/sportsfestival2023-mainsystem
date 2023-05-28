@@ -23,4 +23,5 @@ CREATE table results (
     point5 INT,
     point6 INT,
     point7 INT,
+    subject VARCHAR(100),
 );

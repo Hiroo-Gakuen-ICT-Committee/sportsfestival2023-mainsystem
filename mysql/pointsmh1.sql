@@ -8,4 +8,5 @@ CREATE table pointsmh1 (
     fifth INT,
     sixth INT,
     seventh INT,
-);
+    subject VARCHAR(100),
+    );
